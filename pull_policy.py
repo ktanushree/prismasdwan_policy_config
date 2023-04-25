@@ -152,7 +152,7 @@ ID2N = "id2n"
 PATH = "path"
 QOS = "qos"
 NAT = "nat"
-SECURITY = "SECURITY"
+SECURITY = "security"
 
 CONFIG = {}
 

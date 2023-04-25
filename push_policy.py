@@ -154,7 +154,7 @@ ID2N = "id2n"
 PATH = "path"
 QOS = "qos"
 NAT = "nat"
-SECURITY = "SECURITY"
+SECURITY = "security"
 
 CONFIG = {}
 
@@ -2720,7 +2720,7 @@ def go():
     # Commandline for entering PCM info
     policy_group = parser.add_argument_group('Policy Properties',
                                            'Information shared here will be used to query policies')
-    policy_group.add_argument("--policytype", "-PT", help="Policy Type. Allowed values: PATH, QOS, NAT, SECURITY",
+    policy_group.add_argument("--policytype", "-PT", help="Policy Type. Allowed values: path, qos, nat, security",
                               default=None)
     policy_group.add_argument("--filename","-F", help="File name. Provide the entire path", type=str,
                              default=None)
