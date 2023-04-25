@@ -1,2 +1,2 @@
 # prismasdwan_policy_config
-Scripts for Prisma SDWAN policy management
+Scripts for Prisma SD-WAN policy management
