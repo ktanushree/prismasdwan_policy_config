@@ -8,6 +8,8 @@ The YAML file can be generated using pull_policy.py script.
 
 **Version:** 1.0.1b1
 **Author:** Tanushree K
+**Email:** tkamath@paloaltonetworks.com
+
 """
 
 import yaml
@@ -1279,7 +1281,7 @@ def push_resources(cgx_session, loaded_config):
                 else:
                     print("ERR: Could not delete Custom App: {}".format(ctrl_key))
                     cloudgenix.jd_detailed(resp)
-                    
+
     ############################################################################
     # SECURITY_GLOBAL_PREFIXES
     ############################################################################

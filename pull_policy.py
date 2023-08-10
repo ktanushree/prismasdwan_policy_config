@@ -153,6 +153,7 @@ PATH = "path"
 QOS = "qos"
 NAT = "nat"
 SECURITY = "security"
+ALL = "all"
 
 CONFIG = {}
 
@@ -193,6 +194,384 @@ NATACTIONS_enum_name = {
     "destination_nat_static": "Static Destination NAT",
     "alg_disable": "ALG Disable"
 }
+
+
+def create_global_dicts_all(cgx_session):
+    #
+    # AppDefs
+    #
+    resp = cgx_session.get.appdefs()
+    if resp.cgx_status:
+        itemlist = resp.cgx_content.get("items", None)
+        for item in itemlist:
+            app_id_name[item["id"]] = item["display_name"]
+            app_name_id[item["display_name"]] = item["id"]
+
+    else:
+        print("ERR: Could not retrieve appdefs")
+        cloudgenix.jd_detailed(resp)
+
+    #
+    # NW Context
+    #
+    resp = cgx_session.get.networkcontexts()
+    if resp.cgx_status:
+        itemlist = resp.cgx_content.get("items", None)
+        for item in itemlist:
+            nwcontext_id_name[item["id"]] = item["name"]
+            nwcontext_name_id[item["name"]] = item["id"]
+
+    else:
+        print("ERR: Could not retrieve NW Contexts")
+        cloudgenix.jd_detailed(resp)
+    #
+    # NW Global Prefix
+    #
+    resp = cgx_session.get.networkpolicyglobalprefixes()
+    if resp.cgx_status:
+        itemlist = resp.cgx_content.get("items", None)
+        for item in itemlist:
+            nwglobalprefix_id_name[item["id"]] = item["name"]
+            nwglobalprefix_name_id[item["name"]] = item["id"]
+
+    else:
+        print("ERR: Could not retrieve NW Global Prefix Filters")
+        cloudgenix.jd_detailed(resp)
+
+    #
+    # NW Local Prefix
+    #
+    resp = cgx_session.get.networkpolicylocalprefixes_t()
+    if resp.cgx_status:
+        itemlist = resp.cgx_content.get("items", None)
+        for item in itemlist:
+            nwlocalprefix_id_name[item["id"]] = item["name"]
+            nwlocalprefix_name_id[item["name"]] = item["id"]
+
+    else:
+        print("ERR: Could not retrieve NW Local Prefix Filters")
+        cloudgenix.jd_detailed(resp)
+
+    #
+    # WAN Interface Labels
+    #
+
+    label_label_name["public-*"] = "Any Public"
+    label_label_name["private-*"] = "Any Private"
+    label_name_label["Any Public"] = "public-*"
+    label_name_label["Any Private"] = "private-*"
+
+    resp = cgx_session.get.waninterfacelabels()
+    if resp.cgx_status:
+        itemlist = resp.cgx_content.get("items", None)
+        for item in itemlist:
+            label_label_name[item["label"]] = item["name"]
+            label_name_label[item["name"]] = item["label"]
+
+    else:
+        print("ERR: Could not retrieve WAN Interface Labels")
+        cloudgenix.jd_detailed(resp)
+
+    #
+    # NW Policy Stack
+    #
+    resp = cgx_session.get.networkpolicysetstacks()
+    if resp.cgx_status:
+        itemlist = resp.cgx_content.get("items", None)
+        for item in itemlist:
+            nwpolicystack_id_name[item["id"]] = item["name"]
+            nwpolicystack_name_id[item["name"]] = item["id"]
+            nwpolicystack_name_config[item["name"]] = item
+
+    else:
+        print("ERR: Could not retrieve NW Policy Stacks")
+        cloudgenix.jd_detailed(resp)
+
+    #
+    # NW Policy Set
+    #
+    resp = cgx_session.get.networkpolicysets()
+    if resp.cgx_status:
+        itemlist = resp.cgx_content.get("items", None)
+        for item in itemlist:
+            nwpolicyset_id_name[item["id"]] = item["name"]
+            nwpolicyset_name_id[item["name"]] = item["id"]
+            nwpolicyset_name_config[item["name"]] = item
+
+            resp = cgx_session.get.networkpolicyrules(networkpolicyset_id=item["id"])
+            if resp.cgx_content:
+                rules = resp.cgx_content.get("items", None)
+                for rule in rules:
+                    nwpolicyrule_id_name[(item["id"], rule["id"])] = rule["name"]
+                    nwpolicyrule_name_id[(item["id"], rule["name"])] = rule["id"]
+                    nwpolicyrule_name_config[(item["id"], rule["name"])] = rule
+            else:
+                print("ERR: Could not retrieve NW Policy Rules")
+                cloudgenix.jd_detailed(resp)
+    else:
+        print("ERR: Could not retrieve NW Policy Sets")
+        cloudgenix.jd_detailed(resp)
+
+    #
+    # Service Labels
+    #
+    resp = cgx_session.get.servicelabels()
+    if resp.cgx_status:
+        itemlist = resp.cgx_content.get("items", None)
+        for item in itemlist:
+            servicelabel_id_name[item["id"]] = item["name"]
+            servicelabel_name_id[item["name"]] = item["id"]
+
+    else:
+        print("ERR: Could not retrieve Service Labels")
+        cloudgenix.jd_detailed(resp)
+
+    #
+    # Qos Global Prefix
+    #
+    resp = cgx_session.get.prioritypolicyglobalprefixes()
+    if resp.cgx_status:
+        itemlist = resp.cgx_content.get("items", None)
+        for item in itemlist:
+            qosglobalprefix_id_name[item["id"]] = item["name"]
+            qosglobalprefix_name_id[item["name"]] = item["id"]
+
+    else:
+        print("ERR: Could not retrieve QoS Global Prefix Filters")
+        cloudgenix.jd_detailed(resp)
+
+    #
+    # QoS Local Prefix
+    #
+    resp = cgx_session.get.prioritypolicylocalprefixes_t()
+    if resp.cgx_status:
+        itemlist = resp.cgx_content.get("items", None)
+        for item in itemlist:
+            qoslocalprefix_id_name[item["id"]] = item["name"]
+            qoslocalprefix_name_id[item["name"]] = item["id"]
+
+    else:
+        print("ERR: Could not retrieve QoS Local Prefix Filters")
+        cloudgenix.jd_detailed(resp)
+
+    #
+    # QoS Policy Stack
+    #
+    resp = cgx_session.get.prioritypolicysetstacks()
+    if resp.cgx_status:
+        itemlist = resp.cgx_content.get("items", None)
+        for item in itemlist:
+            qospolicystack_id_name[item["id"]] = item["name"]
+            qospolicystack_name_id[item["name"]] = item["id"]
+            qospolicystack_name_config[item["name"]] = item
+
+    else:
+        print("ERR: Could not retrieve QoS Policy Stacks")
+        cloudgenix.jd_detailed(resp)
+
+    #
+    # QoS Policy Set
+    #
+    resp = cgx_session.get.prioritypolicysets()
+    if resp.cgx_status:
+        itemlist = resp.cgx_content.get("items", None)
+        for item in itemlist:
+            qospolicyset_id_name[item["id"]] = item["name"]
+            qospolicyset_name_id[item["name"]] = item["id"]
+            qospolicyset_name_config[item["name"]] = item
+
+            resp = cgx_session.get.prioritypolicyrules(prioritypolicyset_id=item["id"])
+            if resp.cgx_content:
+                rules = resp.cgx_content.get("items", None)
+                for rule in rules:
+                    qospolicyrule_id_name[(item["id"], rule["id"])] = rule["name"]
+                    qospolicyrule_name_id[(item["id"], rule["name"])] = rule["id"]
+                    qospolicyrule_name_config[(item["id"], rule["name"])] = rule
+            else:
+                print("ERR: Could not retrieve QoS Policy Rules")
+                cloudgenix.jd_detailed(resp)
+    else:
+        print("ERR: Could not retrieve QoS Policy Sets")
+        cloudgenix.jd_detailed(resp)
+
+    #
+    # NAT Zone
+    #
+    resp = cgx_session.get.natzones()
+    if resp.cgx_status:
+        itemlist = resp.cgx_content.get("items", None)
+        for item in itemlist:
+            natzone_id_name[item["id"]] = item["name"]
+            natzone_name_id[item["name"]] = item["id"]
+
+    else:
+        print("ERR: Could not retrieve NAT Zones")
+        cloudgenix.jd_detailed(resp)
+
+    #
+    # NAT Pool
+    #
+    resp = cgx_session.get.natpolicypools()
+    if resp.cgx_status:
+        itemlist = resp.cgx_content.get("items", None)
+        for item in itemlist:
+            natpool_id_name[item["id"]] = item["name"]
+            natpool_name_id[item["name"]] = item["id"]
+
+    else:
+        print("ERR: Could not retrieve NAT Pools")
+        cloudgenix.jd_detailed(resp)
+
+    #
+    # NAT Global Prefix
+    #
+    resp = cgx_session.get.natglobalprefixes()
+    if resp.cgx_status:
+        itemlist = resp.cgx_content.get("items", None)
+        for item in itemlist:
+            natglobalprefix_id_name[item["id"]] = item["name"]
+            natglobalprefix_name_id[item["name"]] = item["id"]
+
+    else:
+        print("ERR: Could not retrieve NAT Global Prefix Filters")
+        cloudgenix.jd_detailed(resp)
+
+    #
+    # NAT Local Prefix
+    #
+    resp = cgx_session.get.natlocalprefixes_t()
+    if resp.cgx_status:
+        itemlist = resp.cgx_content.get("items", None)
+        for item in itemlist:
+            natlocalprefix_id_name[item["id"]] = item["name"]
+            natlocalprefix_name_id[item["name"]] = item["id"]
+
+    else:
+        print("ERR: Could not retrieve NAT Local Prefix Filters")
+        cloudgenix.jd_detailed(resp)
+
+    #
+    # NAT Policy Stack
+    #
+    resp = cgx_session.get.natpolicysetstacks()
+    if resp.cgx_status:
+        itemlist = resp.cgx_content.get("items", None)
+        for item in itemlist:
+            natpolicystack_id_name[item["id"]] = item["name"]
+            natpolicystack_name_id[item["name"]] = item["id"]
+            natpolicystack_name_config[item["name"]] = item
+
+    else:
+        print("ERR: Could not retrieve NAT Policy Stacks")
+        cloudgenix.jd_detailed(resp)
+
+    #
+    # NAT Policy Set
+    #
+    resp = cgx_session.get.natpolicysets()
+    if resp.cgx_status:
+        itemlist = resp.cgx_content.get("items", None)
+        for item in itemlist:
+            natpolicyset_id_name[item["id"]] = item["name"]
+            natpolicyset_name_id[item["name"]] = item["id"]
+            natpolicyset_name_config[item["name"]] = item
+
+            resp = cgx_session.get.natpolicyrules(natpolicyset_id=item["id"])
+            if resp.cgx_content:
+                rules = resp.cgx_content.get("items", None)
+                for rule in rules:
+                    natpolicyrule_id_name[(item["id"], rule["id"])] = rule["name"]
+                    natpolicyrule_name_id[(item["id"], rule["name"])] = rule["id"]
+                    natpolicyrule_name_config[(item["id"], rule["name"])] = rule
+            else:
+                print("ERR: Could not retrieve NAT Policy Rules")
+                cloudgenix.jd_detailed(resp)
+
+    else:
+        print("ERR: Could not retrieve NAT Policy Sets")
+        cloudgenix.jd_detailed(resp)
+
+    #
+    # NGFW Global Prefix
+    #
+    resp = cgx_session.get.ngfwsecuritypolicyglobalprefixes()
+    if resp.cgx_status:
+        itemlist = resp.cgx_content.get("items", None)
+        for item in itemlist:
+            ngfwglobalprefix_id_name[item["id"]] = item["name"]
+            ngfwglobalprefix_name_id[item["name"]] = item["id"]
+
+    else:
+        print("ERR: Could not retrieve Security Global Prefix Filters")
+        cloudgenix.jd_detailed(resp)
+
+    #
+    # NGFW Local Prefix
+    #
+    resp = cgx_session.get.ngfwsecuritypolicylocalprefixes_t()
+    if resp.cgx_status:
+        itemlist = resp.cgx_content.get("items", None)
+        for item in itemlist:
+            ngfwlocalprefix_id_name[item["id"]] = item["name"]
+            ngfwlocalprefix_name_id[item["name"]] = item["id"]
+
+    else:
+        print("ERR: Could not retrieve Security Local Prefix Filters")
+        cloudgenix.jd_detailed(resp)
+
+    #
+    # NGFW Policy Stack
+    #
+    resp = cgx_session.get.ngfwsecuritypolicysetstacks()
+    if resp.cgx_status:
+        itemlist = resp.cgx_content.get("items", None)
+        for item in itemlist:
+            ngfwpolicystack_id_name[item["id"]] = item["name"]
+            ngfwpolicystack_name_id[item["name"]] = item["id"]
+            ngfwpolicystack_name_config[item["name"]] = item
+
+    else:
+        print("ERR: Could not retrieve Security Policy Stacks")
+        cloudgenix.jd_detailed(resp)
+
+    #
+    # NGFW Policy Set
+    #
+    resp = cgx_session.get.ngfwsecuritypolicysets()
+    if resp.cgx_status:
+        itemlist = resp.cgx_content.get("items", None)
+        for item in itemlist:
+            ngfwpolicyset_id_name[item["id"]] = item["name"]
+            ngfwpolicyset_name_id[item["name"]] = item["id"]
+            ngfwpolicyset_name_config[item["name"]] = item
+
+            resp = cgx_session.get.ngfwsecuritypolicyrules(ngfwsecuritypolicyset_id=item["id"])
+            if resp.cgx_content:
+                rules = resp.cgx_content.get("items", None)
+                for rule in rules:
+                    ngfwpolicyrule_id_name[(item["id"], rule["id"])] = rule["name"]
+                    ngfwpolicyrule_name_id[(item["id"], rule["name"])] = rule["id"]
+                    ngfwpolicyrule_name_config[(item["id"], rule["name"])] = rule
+    else:
+        print("ERR: Could not retrieve Security Policy Sets")
+        cloudgenix.jd_detailed(resp)
+
+    #
+    # Security Zones
+    #
+    resp = cgx_session.get.securityzones()
+    if resp.cgx_status:
+        itemlist = resp.cgx_content.get("items", None)
+        for item in itemlist:
+            seczone_id_name[item["id"]] = item["name"]
+            seczone_name_id[item["name"]] = item["id"]
+
+    else:
+        print("ERR: Could not retrieve Security Zones")
+        cloudgenix.jd_detailed(resp)
+
+
+    return
 
 
 def create_global_dicts_path(cgx_session):
@@ -1465,7 +1844,7 @@ def translate_set(setdata, setid, set_type, action):
     return setdata
 
 
-def pull_policy_path(cgx_session, config_file):
+def pull_policy_path(cgx_session, config_file, reset_config):
     stack_name_config = {}
     resp = cgx_session.get.networkpolicysetstacks()
     if resp.cgx_status:
@@ -1478,6 +1857,9 @@ def pull_policy_path(cgx_session, config_file):
     else:
         print("ERR: Could not retrieve Network Policy Stacks")
         cloudgenix.jd_detailed(resp)
+
+    if reset_config:
+        CONFIG = {}
 
     CONFIG[NETWORK_POLICY_STACKS] = [{stackname: stack_name_config[stackname]} for stackname in
                                      stack_name_config.keys()]
@@ -1520,7 +1902,7 @@ def pull_policy_path(cgx_session, config_file):
     return
 
 
-def pull_policy_qos(cgx_session, config_file):
+def pull_policy_qos(cgx_session, config_file, reset_config):
     stack_name_config = {}
     resp = cgx_session.get.prioritypolicysetstacks()
     if resp.cgx_status:
@@ -1533,6 +1915,9 @@ def pull_policy_qos(cgx_session, config_file):
     else:
         print("ERR: Could not retrieve QOS Policy Stacks")
         cloudgenix.jd_detailed(resp)
+
+    if reset_config:
+        CONFIG = {}
 
     CONFIG[PRIORITY_POLICY_STACKS] = [{stackname: stack_name_config[stackname]} for stackname in
                                       stack_name_config.keys()]
@@ -1575,7 +1960,7 @@ def pull_policy_qos(cgx_session, config_file):
     return
 
 
-def pull_policy_nat(cgx_session, config_file):
+def pull_policy_nat(cgx_session, config_file, reset_config):
 
     stack_name_config={}
     resp = cgx_session.get.natpolicysetstacks()
@@ -1589,6 +1974,9 @@ def pull_policy_nat(cgx_session, config_file):
     else:
         print("ERR: Could not retrieve NAT Policy Stacks")
         cloudgenix.jd_detailed(resp)
+
+    if reset_config:
+        CONFIG = {}
 
     CONFIG[NAT_POLICY_STACKS] = [{stackname: stack_name_config[stackname]} for stackname in stack_name_config.keys()]
 
@@ -1633,7 +2021,7 @@ def pull_policy_nat(cgx_session, config_file):
     return
 
 
-def pull_policy_security(cgx_session, config_file):
+def pull_policy_security(cgx_session, config_file, reset_config):
     stack_name_config = {}
     resp = cgx_session.get.ngfwsecuritypolicysetstacks()
     if resp.cgx_status:
@@ -1646,6 +2034,9 @@ def pull_policy_security(cgx_session, config_file):
     else:
         print("ERR: Could not retrieve Security Policy Stacks")
         cloudgenix.jd_detailed(resp)
+
+    if reset_config:
+        CONFIG = {}
 
     CONFIG[SECURITY_POLICY_STACKS] = [{stackname: stack_name_config[stackname]} for stackname in
                                       stack_name_config.keys()]
@@ -1708,7 +2099,7 @@ def go():
     # Commandline for entering PCM info
     policy_group = parser.add_argument_group('Policy Properties',
                                            'Information shared here will be used to query policies')
-    policy_group.add_argument("--policytype", "-PT", help="Policy Type. Allowed values: path, qos, nat, security",
+    policy_group.add_argument("--policytype", "-PT", help="Policy Type. Allowed values: path, qos, nat, security, all",
                               default="PATH")
     policy_group.add_argument("--output", help="Output file name", type=str,
                              default=None)
@@ -1723,13 +2114,24 @@ def go():
         print("ERR: Please provide policy type")
         sys.exit()
 
-    elif policytype not in [PATH, QOS, NAT]:
+    elif policytype not in [PATH, QOS, NAT, SECURITY, ALL]:
         print("ERR: Unsupported policy type")
         sys.exit()
 
     filename = args["output"]
+    filename_path = filename_qos = filename_nat = filename_security = None
+
+    allfile = True
     if filename is None:
-        filename = "./{}_policyconfig.yml".format(policytype)
+        allfile = False
+        if policytype == ALL:
+            filename_path = "./path_policyconfig.yml"
+            filename_qos = "./qos_policyconfig.yml"
+            filename_nat = "./nat_policyconfig.yml"
+            filename_security = "./security_policyconfig.yml"
+
+        else:
+            filename = "./{}_policyconfig.yml".format(policytype)
 
     ############################################################################
     # Instantiate API & Login
@@ -1776,8 +2178,32 @@ def go():
         create_global_dicts_security(cgx_session=cgx_session)
         pull_policy_security(cgx_session=cgx_session, config_file=filename)
 
-    print("INFO: Policy Configuration saved in file: {}".format(filename))
+    elif policytype == ALL:
+        print("INFO: Building translation dicts")
+        create_global_dicts_all(cgx_session=cgx_session)
+        if allfile:
+            pull_policy_path(cgx_session=cgx_session, config_file=filename, reset_config=False)
+            pull_policy_qos(cgx_session=cgx_session, config_file=filename, reset_config=False)
+            pull_policy_nat(cgx_session=cgx_session, config_file=filename, reset_config=False)
+            pull_policy_security(cgx_session=cgx_session, config_file=filename, reset_config=False)
+            print("INFO: Policy Configuration saved in file: {}".format(filename))
+
+        else:
+            pull_policy_path(cgx_session=cgx_session, config_file=filename_path, reset_config=True)
+            print("INFO: Path Policy Configuration saved in file: {}".format(filename_path))
+
+            pull_policy_qos(cgx_session=cgx_session, config_file=filename_qos, reset_config=True)
+            print("INFO: QoS Policy Configuration saved in file: {}".format(filename_qos))
+
+            pull_policy_nat(cgx_session=cgx_session, config_file=filename_nat, reset_config=True)
+            print("INFO: NAT Policy Configuration saved in file: {}".format(filename_nat))
+
+            pull_policy_security(cgx_session=cgx_session, config_file=filename_security, reset_config=True)
+            print("INFO: Security Policy Configuration saved in file: {}".format(filename_security))
+
+
 
 
 if __name__ == "__main__":
     go()
+
