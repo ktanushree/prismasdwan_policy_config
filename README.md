@@ -1,5 +1,19 @@
 # prismasdwan_policy_config
-Scripts for Prisma SD-WAN policy management
+Scripts for Prisma SD-WAN policy management.
+The policy management scripts are a set of 4 scripts that can be used to manage Prisma SD-WAN policies and the resources that make up the policy rules.
+
+Prisma SD-WAN policy rules are reference resources such as applications, prefix filters, security zones, circuit labels, service and DC groups, etc.
+These resources can be entirely managed using the pull_resources.py and push_resources.py scripts.
+
+The scripts **pull_resources.py** and **push_resources.py** can be used to:
+- Take backup of existing resources viz. custom apps, prefix filters, security zones, service and DC groups, circuit labels, etc.
+- Create, update and delete resources viz. custom apps, prefix filters, security zones, service and DC groups, circuit labels, etc.
+
+Once the resources are in the desired state, the pull_policy.py and push_policy.py scripts can be used for policy management viz. stacks, sets and rules.
+
+The scripts **pull_policy.py** and **push_policy.py** can be used to:
+- Take backup of existing policy rules, sets and stacks
+- Create, update and delete policy rules, sets and stacks 
 
 ### Requirements
 * Active Prisma SD-WAN Account
