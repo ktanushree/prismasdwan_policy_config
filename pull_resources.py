@@ -3,7 +3,7 @@
 """
 Script to pull Prisma SD-WAN policy resources into a YAML file
 
-**Version:** 1.0.1b1
+**Version:** 1.0.0b2
 **Author:** Tanushree K
 """
 
@@ -53,7 +53,7 @@ except ImportError:
 
 
 # Version for reference
-__version__ = "1.0.1b1"
+__version__ = "1.0.0b2"
 version = __version__
 
 __author__ = "Tanushree K <tkamath@paloaltonetworks.com>"

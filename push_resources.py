@@ -1,12 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-Script to update Prisma SD-WAN Policies
-Version: 1.0.1b1 only supports updates to Stack, Set and Rules. The script expects policy constructs to be configured on the controller.
-This script expects a YAML file with the policy configuration, acting as the source of truth.
-The YAML file can be generated using pull_policy.py script.
+Script to update Resources used in Prisma SD-WAN Policies
+The YAML file can be generated using pull_resources.py script.
 
-**Version:** 1.0.1b1
+**Version:** 1.0.0b2
 **Author:** Tanushree K
 **Email:** tkamath@paloaltonetworks.com
 
@@ -57,12 +55,12 @@ except ImportError:
 
 
 # Version for reference
-__version__ = "1.0.1b1"
+__version__ = "1.0.0b2"
 version = __version__
 
 __author__ = "Tanushree K <tkamath@paloaltonetworks.com>"
 __email__ = "tkamath@paloaltonetworks.com"
-SCRIPT_NAME = "Policy Tool: Push Policy"
+SCRIPT_NAME = "Policy Tool: Push Resources"
 
 DELETE_KEYS = ["_created_on_utc", "_debug", "_error", "_etag",
                "_info", "_schema", "_updated_on_utc", "_warning",

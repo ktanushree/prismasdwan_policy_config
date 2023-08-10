@@ -2,9 +2,8 @@
 # -*- coding: utf-8 -*-
 """
 Script to pull Prisma SD-WAN Policies configuration into a YAML file
-Version: 1.0.1b1 only supports updates to Stack, Set and Rules. The script expects policy constructs to be configured on the controller.
 
-**Version:** 1.0.1b1
+**Version:** 1.0.0b2
 **Author:** Tanushree K
 """
 
@@ -54,7 +53,7 @@ except ImportError:
 
 
 # Version for reference
-__version__ = "1.0.1b1"
+__version__ = "1.0.0b2"
 version = __version__
 
 __author__ = "Tanushree K <tkamath@paloaltonetworks.com>"
