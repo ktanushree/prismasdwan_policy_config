@@ -7,7 +7,7 @@ Use pull_resources.py and push_resources.py to control policy constructs.
 This script expects a YAML file with the policy configuration, acting as the source of truth.
 The YAML file can be generated using pull_policy.py script.
 
-**Version:** 1.0.0b2
+**Version:** 1.0.0b3
 **Author:** Tanushree K
 """
 
@@ -56,7 +56,7 @@ except ImportError:
 
 
 # Version for reference
-__version__ = "1.0.0b2"
+__version__ = "1.0.0b3"
 version = __version__
 
 __author__ = "Tanushree K <tkamath@paloaltonetworks.com>"
@@ -157,8 +157,6 @@ QOS = "qos"
 NAT = "nat"
 SECURITY = "security"
 ALL = "all"
-
-CONFIG = {}
 
 # Security
 SECURITY_POLICY_STACKS="ngfwsecuritypolicysetstacks"
@@ -1906,6 +1904,9 @@ def compareconf(origconf, curconf):
 
 
 def extractfromyaml(loaded_config, config_type):
+    if config_type not in loaded_config.keys():
+        print("No configs found for {}. Skipping..".format(config_type))
+        return None
     ############################################################################
     # Path
     ############################################################################
@@ -3087,6 +3088,8 @@ def go():
     ############################################################################
     # Begin Script, parse arguments.
     ############################################################################
+    global CONFIG
+    CONFIG = {}
 
     # Parse arguments
     parser = argparse.ArgumentParser(description="{0}.".format(SCRIPT_NAME))

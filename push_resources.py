@@ -4,7 +4,7 @@
 Script to update Resources used in Prisma SD-WAN Policies
 The YAML file can be generated using pull_resources.py script.
 
-**Version:** 1.0.0b2
+**Version:** 1.0.0b3
 **Author:** Tanushree K
 **Email:** tkamath@paloaltonetworks.com
 
@@ -55,7 +55,7 @@ except ImportError:
 
 
 # Version for reference
-__version__ = "1.0.0b2"
+__version__ = "1.0.0b3"
 version = __version__
 
 __author__ = "Tanushree K <tkamath@paloaltonetworks.com>"
@@ -65,7 +65,7 @@ SCRIPT_NAME = "Policy Tool: Push Resources"
 DELETE_KEYS = ["_created_on_utc", "_debug", "_error", "_etag",
                "_info", "_schema", "_updated_on_utc", "_warning",
                "_request_id", "_content_length", "_status_code",
-               "name", "id"]
+               "name", "id", "display_name"]
 
 #
 # Global Dicts
@@ -115,8 +115,6 @@ seczone_name_id = {}
 N2ID = "n2id"
 ID2N = "id2n"
 
-# Dict holding YAML Config
-CONFIG = {}
 
 # App translation Dicts
 globalpf_id_name = {}
@@ -745,6 +743,9 @@ def compareconf(origconf, curconf):
 
 
 def extractfromyaml(loaded_config, config_type):
+    if config_type not in loaded_config.keys():
+        print("No configs found for {}. Skipping..".format(config_type))
+        return None
     ############################################################################
     # Path
     ############################################################################
@@ -754,7 +755,7 @@ def extractfromyaml(loaded_config, config_type):
         for data in configs:
             key = list(data.keys())[0]
             config = data[key]
-            config["name"] = key
+            config["display_name"] = key
             config_clean[key] = config
 
         return config_clean
@@ -1945,6 +1946,8 @@ def go():
     ############################################################################
     # Begin Script, parse arguments.
     ############################################################################
+    global CONFIG
+    CONFIG = {}
 
     # Parse arguments
     parser = argparse.ArgumentParser(description="{0}.".format(SCRIPT_NAME))

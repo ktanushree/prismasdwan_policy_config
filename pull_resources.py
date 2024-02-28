@@ -3,7 +3,7 @@
 """
 Script to pull Prisma SD-WAN policy resources into a YAML file
 
-**Version:** 1.0.0b2
+**Version:** 1.0.0b3
 **Author:** Tanushree K
 """
 
@@ -53,7 +53,7 @@ except ImportError:
 
 
 # Version for reference
-__version__ = "1.0.0b2"
+__version__ = "1.0.0b3"
 version = __version__
 
 __author__ = "Tanushree K <tkamath@paloaltonetworks.com>"
@@ -63,15 +63,13 @@ SCRIPT_NAME = "Policy Tool: Pull Resources"
 DELETE_KEYS = ["_created_on_utc", "_debug", "_error", "_etag",
                "_info", "_schema", "_updated_on_utc", "_warning",
                "_request_id", "_content_length", "_status_code",
-               "name", "id"]
+               "name", "id", "display_name"]
 
 
 # Enums for translation
 N2ID = "n2id"
 ID2N = "id2n"
 
-# Data structure to store YAML data
-CONFIG = {}
 
 # App translation Dicts
 globalpf_id_name = {}
@@ -709,6 +707,8 @@ def go():
     ############################################################################
     # Begin Script, parse arguments.
     ############################################################################
+    global CONFIG
+    CONFIG = {}
 
     # Parse arguments
     parser = argparse.ArgumentParser(description="{0}.".format(SCRIPT_NAME))

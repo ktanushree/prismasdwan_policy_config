@@ -3,7 +3,7 @@
 """
 Script to pull Prisma SD-WAN Policies configuration into a YAML file
 
-**Version:** 1.0.0b2
+**Version:** 1.0.0b3
 **Author:** Tanushree K
 """
 
@@ -53,7 +53,7 @@ except ImportError:
 
 
 # Version for reference
-__version__ = "1.0.0b2"
+__version__ = "1.0.0b3"
 version = __version__
 
 __author__ = "Tanushree K <tkamath@paloaltonetworks.com>"
@@ -154,7 +154,6 @@ NAT = "nat"
 SECURITY = "security"
 ALL = "all"
 
-CONFIG = {}
 
 # Security
 SECURITY_POLICY_STACKS="ngfwsecuritypolicysetstacks"
@@ -2085,6 +2084,9 @@ def go():
     # Begin Script, parse arguments.
     ############################################################################
 
+    global CONFIG
+    CONFIG = {}
+
     # Parse arguments
     parser = argparse.ArgumentParser(description="{0}.".format(SCRIPT_NAME))
 
@@ -2160,22 +2162,22 @@ def go():
     if policytype == PATH:
         print("INFO: Building translation dicts")
         create_global_dicts_path(cgx_session=cgx_session)
-        pull_policy_path(cgx_session=cgx_session, config_file=filename)
+        pull_policy_path(cgx_session=cgx_session, config_file=filename, reset_config=False)
 
     elif policytype == QOS:
         print("INFO: Building translation dicts")
         create_global_dicts_qos(cgx_session=cgx_session)
-        pull_policy_qos(cgx_session=cgx_session, config_file=filename)
+        pull_policy_qos(cgx_session=cgx_session, config_file=filename, reset_config=False)
 
     elif policytype == NAT:
         print("INFO: Building translation dicts")
         create_global_dicts_nat(cgx_session=cgx_session)
-        pull_policy_nat(cgx_session=cgx_session, config_file=filename)
+        pull_policy_nat(cgx_session=cgx_session, config_file=filename, reset_config=False)
 
     elif policytype == SECURITY:
         print("INFO: Building translation dicts")
         create_global_dicts_security(cgx_session=cgx_session)
-        pull_policy_security(cgx_session=cgx_session, config_file=filename)
+        pull_policy_security(cgx_session=cgx_session, config_file=filename, reset_config=False)
 
     elif policytype == ALL:
         print("INFO: Building translation dicts")
