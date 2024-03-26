@@ -4,7 +4,7 @@
 Script to update Resources used in Prisma SD-WAN Policies
 The YAML file can be generated using pull_resources.py script.
 
-**Version:** 1.0.0b3
+**Version:** 1.0.0b4
 **Author:** Tanushree K
 **Email:** tkamath@paloaltonetworks.com
 
@@ -55,7 +55,7 @@ except ImportError:
 
 
 # Version for reference
-__version__ = "1.0.0b3"
+__version__ = "1.0.0b4"
 version = __version__
 
 __author__ = "Tanushree K <tkamath@paloaltonetworks.com>"
@@ -1946,9 +1946,9 @@ def go():
     ############################################################################
     # Begin Script, parse arguments.
     ############################################################################
-    global CONFIG
-    CONFIG = {}
-
+    print("*******************************************"
+          "\n{} [{}]\n{}\n"
+          "*******************************************".format(SCRIPT_NAME, version, datetime.datetime.utcnow()))
     # Parse arguments
     parser = argparse.ArgumentParser(description="{0}.".format(SCRIPT_NAME))
 
@@ -1995,6 +1995,7 @@ def go():
         print("ERR: No credentials provided. Please provide valid credentials in the prismasdwan_settings.py file. Exiting.")
         sys.exit()
 
+    print("Tenant Info: {} [{}]".format(cgx_session.tenant_name, cgx_session.tenant_id))
     ############################################################################
     # Export data from YAML
     ############################################################################

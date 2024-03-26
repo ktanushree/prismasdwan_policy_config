@@ -3,7 +3,7 @@
 """
 Script to pull Prisma SD-WAN policy resources into a YAML file
 
-**Version:** 1.0.0b3
+**Version:** 1.0.0b4
 **Author:** Tanushree K
 """
 
@@ -53,7 +53,7 @@ except ImportError:
 
 
 # Version for reference
-__version__ = "1.0.0b3"
+__version__ = "1.0.0b4"
 version = __version__
 
 __author__ = "Tanushree K <tkamath@paloaltonetworks.com>"
@@ -104,6 +104,7 @@ SECURITY_GLOBAL_PREFIXES = "ngfwsecuritypolicyglobalprefixes"
 SECURITY_LOCAL_PREFIXES = "ngfwsecuritypolicylocalprefixes_t"
 SECURITY_ZONES = "securityzones"
 
+CONFIG = {}
 
 def cleandata(data):
     tmp = data
@@ -359,6 +360,7 @@ def translate_app(data, action):
 
 
 def pull_resources(cgx_session, config_file):
+    global CONFIG
 
     ########################################################
     # Common Resources
@@ -707,9 +709,9 @@ def go():
     ############################################################################
     # Begin Script, parse arguments.
     ############################################################################
-    global CONFIG
-    CONFIG = {}
-
+    print("*******************************************"
+          "\n{} [{}]\n{}\n"
+          "*******************************************".format(SCRIPT_NAME, version, datetime.datetime.utcnow()))
     # Parse arguments
     parser = argparse.ArgumentParser(description="{0}.".format(SCRIPT_NAME))
 
@@ -758,6 +760,7 @@ def go():
         print("ERR: No credentials provided. Please provide valid credentials in the prismasdwan_settings.py file. Exiting.")
         sys.exit()
 
+    print("Tenant Info: {} [{}]".format(cgx_session.tenant_name, cgx_session.tenant_id))
     ############################################################################
     # Create Translation Dicts & Pull Policy
     ############################################################################

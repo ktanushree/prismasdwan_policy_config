@@ -3,7 +3,7 @@
 """
 Script to pull Prisma SD-WAN Policies configuration into a YAML file
 
-**Version:** 1.0.0b3
+**Version:** 1.0.0b4
 **Author:** Tanushree K
 """
 
@@ -53,7 +53,7 @@ except ImportError:
 
 
 # Version for reference
-__version__ = "1.0.0b3"
+__version__ = "1.0.0b4"
 version = __version__
 
 __author__ = "Tanushree K <tkamath@paloaltonetworks.com>"
@@ -193,6 +193,7 @@ NATACTIONS_enum_name = {
     "alg_disable": "ALG Disable"
 }
 
+CONFIG = {}
 
 def create_global_dicts_all(cgx_session):
     #
@@ -1843,6 +1844,7 @@ def translate_set(setdata, setid, set_type, action):
 
 
 def pull_policy_path(cgx_session, config_file, reset_config):
+    global CONFIG
     stack_name_config = {}
     resp = cgx_session.get.networkpolicysetstacks()
     if resp.cgx_status:
@@ -1901,6 +1903,7 @@ def pull_policy_path(cgx_session, config_file, reset_config):
 
 
 def pull_policy_qos(cgx_session, config_file, reset_config):
+    global CONFIG
     stack_name_config = {}
     resp = cgx_session.get.prioritypolicysetstacks()
     if resp.cgx_status:
@@ -1959,6 +1962,7 @@ def pull_policy_qos(cgx_session, config_file, reset_config):
 
 
 def pull_policy_nat(cgx_session, config_file, reset_config):
+    global CONFIG
 
     stack_name_config={}
     resp = cgx_session.get.natpolicysetstacks()
@@ -2020,6 +2024,8 @@ def pull_policy_nat(cgx_session, config_file, reset_config):
 
 
 def pull_policy_security(cgx_session, config_file, reset_config):
+    global CONFIG
+
     stack_name_config = {}
     resp = cgx_session.get.ngfwsecuritypolicysetstacks()
     if resp.cgx_status:
@@ -2083,9 +2089,9 @@ def go():
     ############################################################################
     # Begin Script, parse arguments.
     ############################################################################
-
-    global CONFIG
-    CONFIG = {}
+    print("*******************************************"
+          "\n{} [{}]\n{}\n"
+          "*******************************************".format(SCRIPT_NAME, version, datetime.datetime.utcnow()))
 
     # Parse arguments
     parser = argparse.ArgumentParser(description="{0}.".format(SCRIPT_NAME))
@@ -2156,6 +2162,7 @@ def go():
         print("ERR: No credentials provided. Please provide valid credentials in the prismasdwan_settings.py file. Exiting.")
         sys.exit()
 
+    print("Tenant Info: {} [{}]".format(cgx_session.tenant_name, cgx_session.tenant_id))
     ############################################################################
     # Create Translation Dicts & Pull Policy
     ############################################################################
@@ -2163,21 +2170,29 @@ def go():
         print("INFO: Building translation dicts")
         create_global_dicts_path(cgx_session=cgx_session)
         pull_policy_path(cgx_session=cgx_session, config_file=filename, reset_config=False)
+        print("INFO: Path Policy Configuration saved in file: {}".format(filename))
+
 
     elif policytype == QOS:
         print("INFO: Building translation dicts")
         create_global_dicts_qos(cgx_session=cgx_session)
         pull_policy_qos(cgx_session=cgx_session, config_file=filename, reset_config=False)
+        print("INFO: QoS Policy Configuration saved in file: {}".format(filename))
+
 
     elif policytype == NAT:
         print("INFO: Building translation dicts")
         create_global_dicts_nat(cgx_session=cgx_session)
         pull_policy_nat(cgx_session=cgx_session, config_file=filename, reset_config=False)
+        print("INFO: NAT Policy Configuration saved in file: {}".format(filename))
+
 
     elif policytype == SECURITY:
         print("INFO: Building translation dicts")
         create_global_dicts_security(cgx_session=cgx_session)
         pull_policy_security(cgx_session=cgx_session, config_file=filename, reset_config=False)
+        print("INFO: Security Policy Configuration saved in file: {}".format(filename))
+
 
     elif policytype == ALL:
         print("INFO: Building translation dicts")
@@ -2201,8 +2216,6 @@ def go():
 
             pull_policy_security(cgx_session=cgx_session, config_file=filename_security, reset_config=True)
             print("INFO: Security Policy Configuration saved in file: {}".format(filename_security))
-
-
 
 
 if __name__ == "__main__":

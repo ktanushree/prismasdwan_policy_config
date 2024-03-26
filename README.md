@@ -190,6 +190,7 @@ Policy Properties:
 ### Version
 | Version | Build | Changes |
 | ------- | ----- | ------- |
+| **1.0.0** | **b4** | Bug fix for git issue#3 |
 | **1.0.0** | **b3** | Bug fixes for git issue #1 and #2. Added fix to manage customapps |
 | **1.0.0** | **b2** | Added support for all policy types. Bug fixes |
 | **1.0.0** | **b1** | Initial Release |
