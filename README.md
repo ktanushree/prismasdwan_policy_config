@@ -1,4 +1,4 @@
-# prismasdwan_policy_config
+## prismasdwan_policy_config
 Scripts for Prisma SD-WAN policy management.
 The policy management scripts are a set of 4 scripts that can be used to manage Prisma SD-WAN policies and the resources that make up the policy rules.
 
@@ -15,20 +15,20 @@ The scripts **pull_policy.py** and **push_policy.py** can be used to:
 - Take backup of existing policy rules, sets and stacks
 - Create, update and delete policy rules, sets and stacks 
 
-### Requirements
+## Requirements
 * Active Prisma SD-WAN Account
 * Python >=3.6
 * Python modules:
     * CloudGenix Python SDK >= 6.1.2b1 - <https://github.com/CloudGenix/sdk-python>
 
-### License
+## License
 MIT
 
-### Installation:
+## Installation:
  - **Github:** Download files to a local directory, manually run the scripts
 
-### Usage:
-#### Resource Management
+## Usage:
+### Resource Management
 Pull resource configuration into YAML file:
 ```
 ./pull_resource.py
@@ -38,7 +38,7 @@ Push resource updates to the Prisma SD-WAN Controller
 ./push_resources.py -F <yaml file name> 
 ```
 
-#### Path Policy Management
+### Path Policy Management
 Pull Path Policy configuration into YAML:
 ```angular2
 ./pull_policy.py -PT path 
@@ -48,7 +48,7 @@ Push Path Policy configuration to Prisma SD-WAN Controlelr:
 ./push_policy.py -PT path -F <yaml config file>
 ```
 
-#### QoS Policy Management
+### QoS Policy Management
 Pull QoS Policy configuration into YAML:
 ```angular2
 ./pull_policy.py -PT qos 
@@ -58,7 +58,7 @@ Push QoS Policy configuration to Prisma SD-WAN Controlelr:
 ./push_policy.py -PT qos -F <yaml config file>
 ```
 
-#### NAT Policy Management
+### NAT Policy Management
 Pull NAT Policy configuration into YAML:
 ```angular2
 ./pull_policy.py -PT nat 
@@ -68,7 +68,7 @@ Push NAT Policy configuration to Prisma SD-WAN Controlelr:
 ./push_policy.py -PT nat -F <yaml config file>
 ```
 
-#### Security Policy Management
+### Security Policy Management
 Pull Security Policy configuration into YAML:
 ```angular2
 ./pull_policy.py -PT security 
@@ -78,7 +78,7 @@ Push Security Policy configuration to Prisma SD-WAN Controlelr:
 ./push_policy.py -PT security -F <yaml config file>
 ```
 
-#### Download ALL Policies
+### Download ALL Policies
 Pull ALL Policy configuration into a single YAML file:
 ```angular2
 ./pull_policy.py -PT all --output allpolicyconfig.yml
@@ -88,7 +88,7 @@ Pull ALL Policy configuration into a separate YAML files:
 ./pull_policy.py -PT all 
 ```
 
-### Help Text:
+## Help Text:
 #### pull_resources.py
 ```
 (base) Tanushree's Macbook Pro:policy_config tkamath$ ./pull_resources.py -h
@@ -187,7 +187,7 @@ Policy Properties:
 (base)Tanushree's Macbook Pro:policy_config tkamath$
 ```
 
-### Version
+## Version
 | Version | Build | Changes |
 | ------- | ----- | ------- |
 | **1.0.0** | **b4** | Bug fix for git issue#3 |
