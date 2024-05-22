@@ -19,6 +19,7 @@ The scripts **pull_policy.py** and **push_policy.py** can be used to:
 * Active Prisma SD-WAN Account
 * Python >=3.6
 * Python modules:
+  * One of the Prisma SDWAN Pyrhon SDKs below:  
     * CloudGenix Python SDK >= 6.2.3b1 - <https://github.com/CloudGenix/sdk-python>
     * Prisma SASE Python SDK >= 6.2.3b1 - <https://github.com/PaloAltoNetworks/prisma-sase-sdk-python>
 
