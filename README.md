@@ -15,6 +15,22 @@ The scripts **pull_policy.py** and **push_policy.py** can be used to:
 - Take backup of existing policy rules, sets and stacks
 - Create, update and delete policy rules, sets and stacks 
 
+## Important Note (Please read before using this utility!!!):
+When using **push_resources.py** or **push_policy.py**, please note that the YAML file acts as the source of truth. The configuration state in the YAML will be replicated on the controller. What that means is:
+- If a configuration object exists in the YAML but not on the controller, the configuration object will be **created** on the controller.
+- If a configuration object exists on the contorller but not in the YAML, the configuration object will be **deleted** from the controller.
+- If a configuration object exists both in the YAML and on the contorller, the configuration object will be **updated** on the controller to the values defined in the YAML file.
+
+Partial Resource Management:
+This script can also be used to create a subset of the resources. Once a coniguration YAML is generated using **pull_resources.py**, for resource object you don't intend to manage, delete the resource section including the resource key from the YAML file and only retain the resource section you intend to manage. 
+
+**It is important to take the resource object key out, else the utility assumes no resource object exists for the given resource key and any configuration present on the controller will be deleted.** 
+
+**********
+Please contact the author of this script if you have any questions or concerns for partial resource management.
+**********
+
+
 ## Requirements
 * Active Prisma SD-WAN Account
 * Python >=3.6
