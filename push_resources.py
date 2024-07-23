@@ -169,7 +169,6 @@ seczone_name_config = {}
 globalpf_name_config = {}
 localpf_name_config = {}
 
-
 def create_global_dicts(cgx_session):
     #
     # Global Prefix Filters - AppDefs

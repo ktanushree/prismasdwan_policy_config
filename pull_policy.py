@@ -1290,7 +1290,7 @@ def translate_rule(rule, rule_type, action):
                     if appid in app_id_name.keys():
                         app_def_names.append(app_id_name[appid])
                     else:
-                        print("WARN: App ID {} in rule {} could not be translated".format(appid, rule["name"]))
+                        print("WARN: App ID {} in rule {} could not be translated".format(appid, rule.get("name")))
                         app_def_names.append(appid)
 
                 rule["app_def_ids"] = app_def_names
@@ -1843,7 +1843,7 @@ def translate_set(setdata, setid, set_type, action):
     return setdata
 
 
-def pull_policy_path(cgx_session, config_file, reset_config):
+def pull_policy_path(cgx_session, config_file=None, reset_config=False, return_yml=True):
     global CONFIG
     stack_name_config = {}
     resp = cgx_session.get.networkpolicysetstacks()
@@ -1895,14 +1895,15 @@ def pull_policy_path(cgx_session, config_file, reset_config):
         cloudgenix.jd_detailed(resp)
 
     CONFIG[NETWORK_POLICY_SETS] = [{setname: set_name_config[setname]} for setname in set_name_config.keys()]
-
+    if return_yml:
+        return CONFIG
     config_yml = open(config_file, "w")
     yaml.safe_dump(CONFIG, config_yml, default_flow_style=False)
 
     return
 
 
-def pull_policy_qos(cgx_session, config_file, reset_config):
+def pull_policy_qos(cgx_session, config_file=None, reset_config=False, return_yml=True):
     global CONFIG
     stack_name_config = {}
     resp = cgx_session.get.prioritypolicysetstacks()
@@ -1954,14 +1955,15 @@ def pull_policy_qos(cgx_session, config_file, reset_config):
         cloudgenix.jd_detailed(resp)
 
     CONFIG[PRIORITY_POLICY_SETS] = [{setname: set_name_config[setname]} for setname in set_name_config.keys()]
-
+    if return_yml:
+        return CONFIG
     config_yml = open(config_file, "w")
     yaml.safe_dump(CONFIG, config_yml, default_flow_style=False)
 
     return
 
 
-def pull_policy_nat(cgx_session, config_file, reset_config):
+def pull_policy_nat(cgx_session, config_file=None, reset_config=False, return_yml=True):
     global CONFIG
 
     stack_name_config={}
@@ -2016,14 +2018,15 @@ def pull_policy_nat(cgx_session, config_file, reset_config):
         cloudgenix.jd_detailed(resp)
 
     CONFIG[NAT_POLICY_SETS] = [{setname: set_name_config[setname]} for setname in set_name_config.keys()]
-
+    if return_yml:
+        return CONFIG
     config_yml = open(config_file, "w")
     yaml.safe_dump(CONFIG, config_yml, default_flow_style=False)
 
     return
 
 
-def pull_policy_security(cgx_session, config_file, reset_config):
+def pull_policy_security(cgx_session, config_file=None, reset_config=False, return_yml=True):
     global CONFIG
 
     stack_name_config = {}
@@ -2078,7 +2081,8 @@ def pull_policy_security(cgx_session, config_file, reset_config):
         cloudgenix.jd_detailed(resp)
 
     CONFIG[SECURITY_POLICY_SETS] = [{setname: set_name_config[setname]} for setname in set_name_config.keys()]
-
+    if return_yml:
+        return CONFIG
     config_yml = open(config_file, "w")
     yaml.safe_dump(CONFIG, config_yml, default_flow_style=False)
 

@@ -359,7 +359,7 @@ def translate_app(data, action):
 
 
 
-def pull_resources(cgx_session, config_file):
+def pull_resources(cgx_session, return_yml=False, config_file="./resourceconfig.yml"):
     global CONFIG
 
     ########################################################
@@ -699,10 +699,10 @@ def pull_resources(cgx_session, config_file):
     ########################################################
     # Save to YAML
     ########################################################
+    if return_yml: return CONFIG
+
     config_yml = open(config_file, "w")
     yaml.safe_dump(CONFIG, config_yml, default_flow_style=False)
-
-    return
 
 
 def go():
@@ -750,7 +750,7 @@ def go():
             sys.exit()
 
     elif PRISMASDWAN_CLIENT_ID and PRISMASDWAN_CLIENT_SECRET and PRISMASDWAN_TSG_ID:
-        cgx_session = prisma_sase.API(ssl_verify=False)
+        cgx_session = prisma_sase.API(controller=args["controller"], ssl_verify=False)        
         cgx_session.interactive.login_secret(client_id=PRISMASDWAN_CLIENT_ID, client_secret=PRISMASDWAN_CLIENT_SECRET, tsg_id=PRISMASDWAN_TSG_ID)
         if cgx_session.tenant_id is None:
             print("ERR: Service Account login failure. Please provide a valid Service Account.")
