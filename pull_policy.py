@@ -208,7 +208,7 @@ def create_global_dicts_all(cgx_session):
 
     else:
         print("ERR: Could not retrieve appdefs")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NW Context
@@ -222,7 +222,7 @@ def create_global_dicts_all(cgx_session):
 
     else:
         print("ERR: Could not retrieve NW Contexts")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
     #
     # NW Global Prefix
     #
@@ -235,7 +235,7 @@ def create_global_dicts_all(cgx_session):
 
     else:
         print("ERR: Could not retrieve NW Global Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NW Local Prefix
@@ -249,7 +249,7 @@ def create_global_dicts_all(cgx_session):
 
     else:
         print("ERR: Could not retrieve NW Local Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # WAN Interface Labels
@@ -269,7 +269,7 @@ def create_global_dicts_all(cgx_session):
 
     else:
         print("ERR: Could not retrieve WAN Interface Labels")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NW Policy Stack
@@ -284,7 +284,7 @@ def create_global_dicts_all(cgx_session):
 
     else:
         print("ERR: Could not retrieve NW Policy Stacks")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NW Policy Set
@@ -306,10 +306,10 @@ def create_global_dicts_all(cgx_session):
                     nwpolicyrule_name_config[(item["id"], rule["name"])] = rule
             else:
                 print("ERR: Could not retrieve NW Policy Rules")
-                cloudgenix.jd_detailed(resp)
+                prisma_sase.jd_detailed(resp)
     else:
         print("ERR: Could not retrieve NW Policy Sets")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # Service Labels
@@ -323,7 +323,7 @@ def create_global_dicts_all(cgx_session):
 
     else:
         print("ERR: Could not retrieve Service Labels")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # Qos Global Prefix
@@ -337,7 +337,7 @@ def create_global_dicts_all(cgx_session):
 
     else:
         print("ERR: Could not retrieve QoS Global Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # QoS Local Prefix
@@ -351,7 +351,7 @@ def create_global_dicts_all(cgx_session):
 
     else:
         print("ERR: Could not retrieve QoS Local Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # QoS Policy Stack
@@ -366,7 +366,7 @@ def create_global_dicts_all(cgx_session):
 
     else:
         print("ERR: Could not retrieve QoS Policy Stacks")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # QoS Policy Set
@@ -388,10 +388,10 @@ def create_global_dicts_all(cgx_session):
                     qospolicyrule_name_config[(item["id"], rule["name"])] = rule
             else:
                 print("ERR: Could not retrieve QoS Policy Rules")
-                cloudgenix.jd_detailed(resp)
+                prisma_sase.jd_detailed(resp)
     else:
         print("ERR: Could not retrieve QoS Policy Sets")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NAT Zone
@@ -405,7 +405,7 @@ def create_global_dicts_all(cgx_session):
 
     else:
         print("ERR: Could not retrieve NAT Zones")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NAT Pool
@@ -419,7 +419,7 @@ def create_global_dicts_all(cgx_session):
 
     else:
         print("ERR: Could not retrieve NAT Pools")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NAT Global Prefix
@@ -433,7 +433,7 @@ def create_global_dicts_all(cgx_session):
 
     else:
         print("ERR: Could not retrieve NAT Global Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NAT Local Prefix
@@ -447,7 +447,7 @@ def create_global_dicts_all(cgx_session):
 
     else:
         print("ERR: Could not retrieve NAT Local Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NAT Policy Stack
@@ -462,7 +462,7 @@ def create_global_dicts_all(cgx_session):
 
     else:
         print("ERR: Could not retrieve NAT Policy Stacks")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NAT Policy Set
@@ -484,11 +484,11 @@ def create_global_dicts_all(cgx_session):
                     natpolicyrule_name_config[(item["id"], rule["name"])] = rule
             else:
                 print("ERR: Could not retrieve NAT Policy Rules")
-                cloudgenix.jd_detailed(resp)
+                prisma_sase.jd_detailed(resp)
 
     else:
         print("ERR: Could not retrieve NAT Policy Sets")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NGFW Global Prefix
@@ -502,7 +502,7 @@ def create_global_dicts_all(cgx_session):
 
     else:
         print("ERR: Could not retrieve Security Global Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NGFW Local Prefix
@@ -516,7 +516,7 @@ def create_global_dicts_all(cgx_session):
 
     else:
         print("ERR: Could not retrieve Security Local Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NGFW Policy Stack
@@ -531,7 +531,7 @@ def create_global_dicts_all(cgx_session):
 
     else:
         print("ERR: Could not retrieve Security Policy Stacks")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NGFW Policy Set
@@ -553,7 +553,7 @@ def create_global_dicts_all(cgx_session):
                     ngfwpolicyrule_name_config[(item["id"], rule["name"])] = rule
     else:
         print("ERR: Could not retrieve Security Policy Sets")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # Security Zones
@@ -567,7 +567,7 @@ def create_global_dicts_all(cgx_session):
 
     else:
         print("ERR: Could not retrieve Security Zones")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
 
     return
@@ -587,7 +587,7 @@ def create_global_dicts_path(cgx_session):
 
     else:
         print("ERR: Could not retrieve appdefs")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NW Context
@@ -601,7 +601,7 @@ def create_global_dicts_path(cgx_session):
 
     else:
         print("ERR: Could not retrieve NW Contexts")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
     #
     # NW Global Prefix
     #
@@ -614,7 +614,7 @@ def create_global_dicts_path(cgx_session):
 
     else:
         print("ERR: Could not retrieve NW Global Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NW Local Prefix
@@ -628,7 +628,7 @@ def create_global_dicts_path(cgx_session):
 
     else:
         print("ERR: Could not retrieve NW Local Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # WAN Interface Labels
@@ -648,7 +648,7 @@ def create_global_dicts_path(cgx_session):
 
     else:
         print("ERR: Could not retrieve WAN Interface Labels")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NW Policy Stack
@@ -663,7 +663,7 @@ def create_global_dicts_path(cgx_session):
 
     else:
         print("ERR: Could not retrieve NW Policy Stacks")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NW Policy Set
@@ -685,10 +685,10 @@ def create_global_dicts_path(cgx_session):
                     nwpolicyrule_name_config[(item["id"], rule["name"])] = rule
             else:
                 print("ERR: Could not retrieve NW Policy Rules")
-                cloudgenix.jd_detailed(resp)
+                prisma_sase.jd_detailed(resp)
     else:
         print("ERR: Could not retrieve NW Policy Sets")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # Service Labels
@@ -702,7 +702,7 @@ def create_global_dicts_path(cgx_session):
 
     else:
         print("ERR: Could not retrieve Service Labels")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     return
 
@@ -720,7 +720,7 @@ def create_global_dicts_qos(cgx_session):
 
     else:
         print("ERR: Could not retrieve appdefs")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NW Context
@@ -734,7 +734,7 @@ def create_global_dicts_qos(cgx_session):
 
     else:
         print("ERR: Could not retrieve NW Contexts")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
     #
     # Qos Global Prefix
     #
@@ -747,7 +747,7 @@ def create_global_dicts_qos(cgx_session):
 
     else:
         print("ERR: Could not retrieve QoS Global Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # QoS Local Prefix
@@ -761,7 +761,7 @@ def create_global_dicts_qos(cgx_session):
 
     else:
         print("ERR: Could not retrieve QoS Local Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
 
     #
@@ -777,7 +777,7 @@ def create_global_dicts_qos(cgx_session):
 
     else:
         print("ERR: Could not retrieve QoS Policy Stacks")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # QoS Policy Set
@@ -799,10 +799,10 @@ def create_global_dicts_qos(cgx_session):
                     qospolicyrule_name_config[(item["id"], rule["name"])] = rule
             else:
                 print("ERR: Could not retrieve QoS Policy Rules")
-                cloudgenix.jd_detailed(resp)
+                prisma_sase.jd_detailed(resp)
     else:
         print("ERR: Could not retrieve QoS Policy Sets")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     return
 
@@ -820,7 +820,7 @@ def create_global_dicts_nat(cgx_session):
 
     else:
         print("ERR: Could not retrieve NAT Zones")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NAT Pool
@@ -834,7 +834,7 @@ def create_global_dicts_nat(cgx_session):
 
     else:
         print("ERR: Could not retrieve NAT Pools")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NAT Global Prefix
@@ -848,7 +848,7 @@ def create_global_dicts_nat(cgx_session):
 
     else:
         print("ERR: Could not retrieve NAT Global Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NAT Local Prefix
@@ -862,7 +862,7 @@ def create_global_dicts_nat(cgx_session):
 
     else:
         print("ERR: Could not retrieve NAT Local Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NAT Policy Stack
@@ -877,7 +877,7 @@ def create_global_dicts_nat(cgx_session):
 
     else:
         print("ERR: Could not retrieve NAT Policy Stacks")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NAT Policy Set
@@ -899,11 +899,11 @@ def create_global_dicts_nat(cgx_session):
                     natpolicyrule_name_config[(item["id"], rule["name"])] = rule
             else:
                 print("ERR: Could not retrieve NAT Policy Rules")
-                cloudgenix.jd_detailed(resp)
+                prisma_sase.jd_detailed(resp)
 
     else:
         print("ERR: Could not retrieve NAT Policy Sets")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
 
     return
@@ -923,7 +923,7 @@ def create_global_dicts_security(cgx_session):
 
     else:
         print("ERR: Could not retrieve appdefs")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NGFW Global Prefix
@@ -937,7 +937,7 @@ def create_global_dicts_security(cgx_session):
 
     else:
         print("ERR: Could not retrieve Security Global Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NGFW Local Prefix
@@ -951,7 +951,7 @@ def create_global_dicts_security(cgx_session):
 
     else:
         print("ERR: Could not retrieve Security Local Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NGFW Policy Stack
@@ -966,7 +966,7 @@ def create_global_dicts_security(cgx_session):
 
     else:
         print("ERR: Could not retrieve Security Policy Stacks")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NGFW Policy Set
@@ -988,7 +988,7 @@ def create_global_dicts_security(cgx_session):
                     ngfwpolicyrule_name_config[(item["id"], rule["name"])] = rule
     else:
         print("ERR: Could not retrieve Security Policy Sets")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # Security Zones
@@ -1002,7 +1002,7 @@ def create_global_dicts_security(cgx_session):
 
     else:
         print("ERR: Could not retrieve Security Zones")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     return
 
@@ -1856,7 +1856,7 @@ def pull_policy_path(cgx_session, config_file=None, reset_config=False, return_y
             stack_name_config[pathstackname] = clean_pathstack
     else:
         print("ERR: Could not retrieve Network Policy Stacks")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     if reset_config:
         CONFIG = {}
@@ -1884,7 +1884,7 @@ def pull_policy_path(cgx_session, config_file=None, reset_config=False, return_y
 
             else:
                 print("ERR: Could not retrieve rules")
-                cloudgenix.jd_detailed(resp)
+                prisma_sase.jd_detailed(resp)
 
             clean_pathset = cleandata(pathset)
             pathset[NETWORK_POLICY_RULES] = [{rname: rule_name_config[rname]} for rname in rule_name_config.keys()]
@@ -1892,7 +1892,7 @@ def pull_policy_path(cgx_session, config_file=None, reset_config=False, return_y
 
     else:
         print("ERR: Could not retrieve Path Policy Sets")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     CONFIG[NETWORK_POLICY_SETS] = [{setname: set_name_config[setname]} for setname in set_name_config.keys()]
     if return_yml:
@@ -1916,7 +1916,7 @@ def pull_policy_qos(cgx_session, config_file=None, reset_config=False, return_ym
             stack_name_config[qosstackname] = clean_qosstack
     else:
         print("ERR: Could not retrieve QOS Policy Stacks")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     if reset_config:
         CONFIG = {}
@@ -1944,7 +1944,7 @@ def pull_policy_qos(cgx_session, config_file=None, reset_config=False, return_ym
 
             else:
                 print("ERR: Could not retrieve rules")
-                cloudgenix.jd_detailed(resp)
+                prisma_sase.jd_detailed(resp)
 
             clean_qosset = cleandata(qosset)
             qosset[PRIORITY_POLICY_RULES] = [{rname: rule_name_config[rname]} for rname in rule_name_config.keys()]
@@ -1952,7 +1952,7 @@ def pull_policy_qos(cgx_session, config_file=None, reset_config=False, return_ym
 
     else:
         print("ERR: Could not retrieve QoS Policy Sets")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     CONFIG[PRIORITY_POLICY_SETS] = [{setname: set_name_config[setname]} for setname in set_name_config.keys()]
     if return_yml:
@@ -1977,7 +1977,7 @@ def pull_policy_nat(cgx_session, config_file=None, reset_config=False, return_ym
             stack_name_config[natstackname] = clean_natstack
     else:
         print("ERR: Could not retrieve NAT Policy Stacks")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     if reset_config:
         CONFIG = {}
@@ -2005,7 +2005,7 @@ def pull_policy_nat(cgx_session, config_file=None, reset_config=False, return_ym
 
             else:
                 print("ERR: Could not retrieve rules")
-                cloudgenix.jd_detailed(resp)
+                prisma_sase.jd_detailed(resp)
 
             setid = natset["id"]
             clean_natset = cleandata(natset)
@@ -2015,7 +2015,7 @@ def pull_policy_nat(cgx_session, config_file=None, reset_config=False, return_ym
 
     else:
         print("ERR: Could not retrieve NAT Policy Sets")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     CONFIG[NAT_POLICY_SETS] = [{setname: set_name_config[setname]} for setname in set_name_config.keys()]
     if return_yml:
@@ -2040,7 +2040,7 @@ def pull_policy_security(cgx_session, config_file=None, reset_config=False, retu
             stack_name_config[ngfwstackname] = clean_ngfwstack
     else:
         print("ERR: Could not retrieve Security Policy Stacks")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     if reset_config:
         CONFIG = {}
@@ -2068,7 +2068,7 @@ def pull_policy_security(cgx_session, config_file=None, reset_config=False, retu
 
             else:
                 print("ERR: Could not retrieve rules")
-                cloudgenix.jd_detailed(resp)
+                prisma_sase.jd_detailed(resp)
 
             setid = ngfwset["id"]
             clean_ngfwset = cleandata(ngfwset)
@@ -2078,7 +2078,7 @@ def pull_policy_security(cgx_session, config_file=None, reset_config=False, retu
 
     else:
         print("ERR: Could not retrieve Security Policy Sets")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     CONFIG[SECURITY_POLICY_SETS] = [{setname: set_name_config[setname]} for setname in set_name_config.keys()]
     if return_yml:

@@ -182,7 +182,7 @@ def create_global_dicts(cgx_session):
             globalpf_name_config[item["name"]] = item
     else:
         print("ERR: Could not retrieve Global Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # Local Prefix Filters - AppDefs
@@ -196,7 +196,7 @@ def create_global_dicts(cgx_session):
             localpf_name_config[item["name"]] = item
     else:
         print("ERR: Could not retrieve Local Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # AppDefs
@@ -212,7 +212,7 @@ def create_global_dicts(cgx_session):
 
     else:
         print("ERR: Could not retrieve appdefs")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NW Context
@@ -226,7 +226,7 @@ def create_global_dicts(cgx_session):
             nwcontext_name_config[item["name"]] = item
     else:
         print("ERR: Could not retrieve NW Contexts")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NW Global Prefix
@@ -240,7 +240,7 @@ def create_global_dicts(cgx_session):
             nwglobalprefix_name_config[item["name"]] = item
     else:
         print("ERR: Could not retrieve NW Global Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NW Local Prefix
@@ -255,7 +255,7 @@ def create_global_dicts(cgx_session):
 
     else:
         print("ERR: Could not retrieve NW Local Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # WAN Interface Labels
@@ -276,7 +276,7 @@ def create_global_dicts(cgx_session):
 
     else:
         print("ERR: Could not retrieve WAN Interface Labels")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # Service Labels
@@ -291,7 +291,7 @@ def create_global_dicts(cgx_session):
 
     else:
         print("ERR: Could not retrieve Service Labels")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
 
     #
@@ -307,7 +307,7 @@ def create_global_dicts(cgx_session):
 
     else:
         print("ERR: Could not retrieve QoS Global Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # QoS Local Prefix
@@ -322,7 +322,7 @@ def create_global_dicts(cgx_session):
 
     else:
         print("ERR: Could not retrieve QoS Local Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NAT Zone
@@ -337,7 +337,7 @@ def create_global_dicts(cgx_session):
 
     else:
         print("ERR: Could not retrieve NAT Zones")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NAT Pool
@@ -352,7 +352,7 @@ def create_global_dicts(cgx_session):
 
     else:
         print("ERR: Could not retrieve NAT Pools")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NAT Global Prefix
@@ -367,7 +367,7 @@ def create_global_dicts(cgx_session):
 
     else:
         print("ERR: Could not retrieve NAT Global Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NAT Local Prefix
@@ -381,7 +381,7 @@ def create_global_dicts(cgx_session):
             natlocalprefix_name_config[item["name"]] = item
     else:
         print("ERR: Could not retrieve NAT Local Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
 
     #
@@ -397,7 +397,7 @@ def create_global_dicts(cgx_session):
 
     else:
         print("ERR: Could not retrieve Security Global Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NGFW Local Prefix
@@ -412,7 +412,7 @@ def create_global_dicts(cgx_session):
 
     else:
         print("ERR: Could not retrieve Security Local Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # Security Zones
@@ -428,7 +428,7 @@ def create_global_dicts(cgx_session):
 
     else:
         print("ERR: Could not retrieve Security Zones")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     return
 
@@ -973,7 +973,7 @@ def push_resources(cgx_session, loaded_config):
                         print("Updated Service Label: {}".format(yaml_key))
                     else:
                         print("ERR: Could not update Service Label: {}".format(yaml_key))
-                        cloudgenix.jd_detailed(resp)
+                        prisma_sase.jd_detailed(resp)
 
                 else:
                     ############################################################################
@@ -996,7 +996,7 @@ def push_resources(cgx_session, loaded_config):
 
                 else:
                     print("ERR: Could not create Service Label: {}".format(yaml_key))
-                    cloudgenix.jd_detailed(resp)
+                    prisma_sase.jd_detailed(resp)
 
         ############################################################################
         # SERVICE_LABELS - Delete
@@ -1009,7 +1009,7 @@ def push_resources(cgx_session, loaded_config):
                     print("Deleted Service Label: {}".format(ctrl_key))
                 else:
                     print("ERR: Could not delete Service Label: {}".format(ctrl_key))
-                    cloudgenix.jd_detailed(resp)
+                    prisma_sase.jd_detailed(resp)
     ############################################################################
     # NETWORK_CONTEXTS
     ############################################################################
@@ -1032,7 +1032,7 @@ def push_resources(cgx_session, loaded_config):
                         print("Updated Network Context: {}".format(yaml_key))
                     else:
                         print("ERR: Could not update Network Context: {}".format(yaml_key))
-                        cloudgenix.jd_detailed(resp)
+                        prisma_sase.jd_detailed(resp)
 
                 else:
                     ############################################################################
@@ -1055,7 +1055,7 @@ def push_resources(cgx_session, loaded_config):
 
                 else:
                     print("ERR: Could not create Network Context: {}".format(yaml_key))
-                    cloudgenix.jd_detailed(resp)
+                    prisma_sase.jd_detailed(resp)
 
         ############################################################################
         # NETWORK_CONTEXTS - Delete
@@ -1068,7 +1068,7 @@ def push_resources(cgx_session, loaded_config):
                     print("Deleted Network Context: {}".format(ctrl_key))
                 else:
                     print("ERR: Could not delete Network Context: {}".format(ctrl_key))
-                    cloudgenix.jd_detailed(resp)
+                    prisma_sase.jd_detailed(resp)
 
     ############################################################################
     # WANINTERFACE_LABELS
@@ -1092,7 +1092,7 @@ def push_resources(cgx_session, loaded_config):
                         print("Updated Label: {}".format(yaml_key))
                     else:
                         print("ERR: Could not update Label: {}".format(yaml_key))
-                        cloudgenix.jd_detailed(resp)
+                        prisma_sase.jd_detailed(resp)
 
                 else:
                     ############################################################################
@@ -1122,7 +1122,7 @@ def push_resources(cgx_session, loaded_config):
                         print("Updated Global Prefix Filter: {}".format(yaml_key))
                     else:
                         print("ERR: Could not update Global Prefix Filter: {}".format(yaml_key))
-                        cloudgenix.jd_detailed(resp)
+                        prisma_sase.jd_detailed(resp)
 
                 else:
                     ############################################################################
@@ -1145,7 +1145,7 @@ def push_resources(cgx_session, loaded_config):
 
                 else:
                     print("ERR: Could not create Global Prefix Filter: {}".format(yaml_key))
-                    cloudgenix.jd_detailed(resp)
+                    prisma_sase.jd_detailed(resp)
 
         ############################################################################
         # GLOBAL_PREFIX_FILTERS - Delete
@@ -1158,7 +1158,7 @@ def push_resources(cgx_session, loaded_config):
                     print("Deleted Global Prefix Filter: {}".format(ctrl_key))
                 else:
                     print("ERR: Could not delete Global Prefix Filter: {}".format(ctrl_key))
-                    cloudgenix.jd_detailed(resp)
+                    prisma_sase.jd_detailed(resp)
 
     ############################################################################
     # LOCAL_PREFIX_FILTERS
@@ -1182,7 +1182,7 @@ def push_resources(cgx_session, loaded_config):
                         print("Updated local Prefix Filter: {}".format(yaml_key))
                     else:
                         print("ERR: Could not update local Prefix Filter: {}".format(yaml_key))
-                        cloudgenix.jd_detailed(resp)
+                        prisma_sase.jd_detailed(resp)
 
                 else:
                     ############################################################################
@@ -1205,7 +1205,7 @@ def push_resources(cgx_session, loaded_config):
 
                 else:
                     print("ERR: Could not create local Prefix Filter: {}".format(yaml_key))
-                    cloudgenix.jd_detailed(resp)
+                    prisma_sase.jd_detailed(resp)
 
         ############################################################################
         # LOCAL_PREFIX_FILTERS - Delete
@@ -1218,7 +1218,7 @@ def push_resources(cgx_session, loaded_config):
                     print("Deleted local Prefix Filter: {}".format(ctrl_key))
                 else:
                     print("ERR: Could not delete local Prefix Filter: {}".format(ctrl_key))
-                    cloudgenix.jd_detailed(resp)
+                    prisma_sase.jd_detailed(resp)
 
     ############################################################################
     # CUSTOM_APPDEFS
@@ -1242,7 +1242,7 @@ def push_resources(cgx_session, loaded_config):
                         print("Updated Custom App: {}".format(yaml_key))
                     else:
                         print("ERR: Could not update Custom App: {}".format(yaml_key))
-                        cloudgenix.jd_detailed(resp)
+                        prisma_sase.jd_detailed(resp)
 
                 else:
                     ############################################################################
@@ -1265,7 +1265,7 @@ def push_resources(cgx_session, loaded_config):
 
                 else:
                     print("ERR: Could not create Custom App: {}".format(yaml_key))
-                    cloudgenix.jd_detailed(resp)
+                    prisma_sase.jd_detailed(resp)
 
         ############################################################################
         # CUSTOM_APPDEFS - Delete
@@ -1278,7 +1278,7 @@ def push_resources(cgx_session, loaded_config):
                     print("Deleted Custom App: {}".format(ctrl_key))
                 else:
                     print("ERR: Could not delete Custom App: {}".format(ctrl_key))
-                    cloudgenix.jd_detailed(resp)
+                    prisma_sase.jd_detailed(resp)
 
     ############################################################################
     # SECURITY_GLOBAL_PREFIXES
@@ -1302,7 +1302,7 @@ def push_resources(cgx_session, loaded_config):
                         print("Updated Security Global Prefix: {}".format(yaml_key))
                     else:
                         print("ERR: Could not update Security Global Prefix: {}".format(yaml_key))
-                        cloudgenix.jd_detailed(resp)
+                        prisma_sase.jd_detailed(resp)
 
                 else:
                     ############################################################################
@@ -1325,7 +1325,7 @@ def push_resources(cgx_session, loaded_config):
 
                 else:
                     print("ERR: Could not create Security Global Prefix: {}".format(yaml_key))
-                    cloudgenix.jd_detailed(resp)
+                    prisma_sase.jd_detailed(resp)
 
         ############################################################################
         # SECURITY_GLOBAL_PREFIXES - Delete
@@ -1338,7 +1338,7 @@ def push_resources(cgx_session, loaded_config):
                     print("Deleted Security Global Prefix: {}".format(ctrl_key))
                 else:
                     print("ERR: Could not delete Security Global Prefix: {}".format(ctrl_key))
-                    cloudgenix.jd_detailed(resp)
+                    prisma_sase.jd_detailed(resp)
 
     ############################################################################
     # SECURITY_LOCAL_PREFIXES
@@ -1362,7 +1362,7 @@ def push_resources(cgx_session, loaded_config):
                         print("Updated Security local Prefix: {}".format(yaml_key))
                     else:
                         print("ERR: Could not update Security local Prefix: {}".format(yaml_key))
-                        cloudgenix.jd_detailed(resp)
+                        prisma_sase.jd_detailed(resp)
 
                 else:
                     ############################################################################
@@ -1385,7 +1385,7 @@ def push_resources(cgx_session, loaded_config):
 
                 else:
                     print("ERR: Could not create Security local Prefix: {}".format(yaml_key))
-                    cloudgenix.jd_detailed(resp)
+                    prisma_sase.jd_detailed(resp)
 
         ############################################################################
         # SECURITY_LOCAL_PREFIXES - Delete
@@ -1398,7 +1398,7 @@ def push_resources(cgx_session, loaded_config):
                     print("Deleted Security local Prefix: {}".format(ctrl_key))
                 else:
                     print("ERR: Could not delete Security local Prefix: {}".format(ctrl_key))
-                    cloudgenix.jd_detailed(resp)
+                    prisma_sase.jd_detailed(resp)
 
     ############################################################################
     # SECURITY_ZONES
@@ -1422,7 +1422,7 @@ def push_resources(cgx_session, loaded_config):
                         print("Updated Security Zone: {}".format(yaml_key))
                     else:
                         print("ERR: Could not update Security Zone: {}".format(yaml_key))
-                        cloudgenix.jd_detailed(resp)
+                        prisma_sase.jd_detailed(resp)
 
                 else:
                     ############################################################################
@@ -1445,7 +1445,7 @@ def push_resources(cgx_session, loaded_config):
 
                 else:
                     print("ERR: Could not create Security Zone: {}".format(yaml_key))
-                    cloudgenix.jd_detailed(resp)
+                    prisma_sase.jd_detailed(resp)
 
         ############################################################################
         # SECURITY_ZONES - Delete
@@ -1458,7 +1458,7 @@ def push_resources(cgx_session, loaded_config):
                     print("Deleted Security Zone: {}".format(ctrl_key))
                 else:
                     print("ERR: Could not delete Security Zone: {}".format(ctrl_key))
-                    cloudgenix.jd_detailed(resp)
+                    prisma_sase.jd_detailed(resp)
 
     ############################################################################
     # NAT_GLOBAL_PREFIXES
@@ -1482,7 +1482,7 @@ def push_resources(cgx_session, loaded_config):
                         print("Updated nat global Prefix: {}".format(yaml_key))
                     else:
                         print("ERR: Could not update nat global Prefix: {}".format(yaml_key))
-                        cloudgenix.jd_detailed(resp)
+                        prisma_sase.jd_detailed(resp)
 
                 else:
                     ############################################################################
@@ -1505,7 +1505,7 @@ def push_resources(cgx_session, loaded_config):
 
                 else:
                     print("ERR: Could not create nat global Prefix: {}".format(yaml_key))
-                    cloudgenix.jd_detailed(resp)
+                    prisma_sase.jd_detailed(resp)
 
         ############################################################################
         # NAT_GLOBAL_PREFIXES - Delete
@@ -1518,7 +1518,7 @@ def push_resources(cgx_session, loaded_config):
                     print("Deleted nat global Prefix: {}".format(ctrl_key))
                 else:
                     print("ERR: Could not delete nat global Prefix: {}".format(ctrl_key))
-                    cloudgenix.jd_detailed(resp)
+                    prisma_sase.jd_detailed(resp)
 
     ############################################################################
     # NAT_LOCAL_PREFIXES
@@ -1542,7 +1542,7 @@ def push_resources(cgx_session, loaded_config):
                         print("Updated nat local Prefix: {}".format(yaml_key))
                     else:
                         print("ERR: Could not update nat local Prefix: {}".format(yaml_key))
-                        cloudgenix.jd_detailed(resp)
+                        prisma_sase.jd_detailed(resp)
 
                 else:
                     ############################################################################
@@ -1565,7 +1565,7 @@ def push_resources(cgx_session, loaded_config):
 
                 else:
                     print("ERR: Could not create nat local Prefix: {}".format(yaml_key))
-                    cloudgenix.jd_detailed(resp)
+                    prisma_sase.jd_detailed(resp)
 
         ############################################################################
         # NAT_LOCAL_PREFIXES - Delete
@@ -1578,7 +1578,7 @@ def push_resources(cgx_session, loaded_config):
                     print("Deleted nat local Prefix: {}".format(ctrl_key))
                 else:
                     print("ERR: Could not delete nat local Prefix: {}".format(ctrl_key))
-                    cloudgenix.jd_detailed(resp)
+                    prisma_sase.jd_detailed(resp)
 
     ############################################################################
     # NAT_ZONES
@@ -1602,7 +1602,7 @@ def push_resources(cgx_session, loaded_config):
                         print("Updated nat zone: {}".format(yaml_key))
                     else:
                         print("ERR: Could not update nat zone: {}".format(yaml_key))
-                        cloudgenix.jd_detailed(resp)
+                        prisma_sase.jd_detailed(resp)
 
                 else:
                     ############################################################################
@@ -1624,7 +1624,7 @@ def push_resources(cgx_session, loaded_config):
 
                 else:
                     print("ERR: Could not create nat zone: {}".format(yaml_key))
-                    cloudgenix.jd_detailed(resp)
+                    prisma_sase.jd_detailed(resp)
 
         ############################################################################
         # NAT_ZONES - Delete
@@ -1637,7 +1637,7 @@ def push_resources(cgx_session, loaded_config):
                     print("Deleted nat zone: {}".format(ctrl_key))
                 else:
                     print("ERR: Could not delete nat zone: {}".format(ctrl_key))
-                    cloudgenix.jd_detailed(resp)
+                    prisma_sase.jd_detailed(resp)
 
     ############################################################################
     # NAT_POLICY_POOL
@@ -1661,7 +1661,7 @@ def push_resources(cgx_session, loaded_config):
                         print("Updated nat pool: {}".format(yaml_key))
                     else:
                         print("ERR: Could not update nat pool: {}".format(yaml_key))
-                        cloudgenix.jd_detailed(resp)
+                        prisma_sase.jd_detailed(resp)
 
                 else:
                     ############################################################################
@@ -1684,7 +1684,7 @@ def push_resources(cgx_session, loaded_config):
 
                 else:
                     print("ERR: Could not create nat pool: {}".format(yaml_key))
-                    cloudgenix.jd_detailed(resp)
+                    prisma_sase.jd_detailed(resp)
 
         ############################################################################
         # NAT_POLICY_POOL - Delete
@@ -1697,7 +1697,7 @@ def push_resources(cgx_session, loaded_config):
                     print("Deleted nat pool: {}".format(ctrl_key))
                 else:
                     print("ERR: Could not delete nat pool: {}".format(ctrl_key))
-                    cloudgenix.jd_detailed(resp)
+                    prisma_sase.jd_detailed(resp)
 
     ############################################################################
     # PRIORITY_GLOBAL_PREFIXES
@@ -1721,7 +1721,7 @@ def push_resources(cgx_session, loaded_config):
                         print("Updated QoS global Prefix: {}".format(yaml_key))
                     else:
                         print("ERR: Could not update QoS global Prefix: {}".format(yaml_key))
-                        cloudgenix.jd_detailed(resp)
+                        prisma_sase.jd_detailed(resp)
 
                 else:
                     ############################################################################
@@ -1744,7 +1744,7 @@ def push_resources(cgx_session, loaded_config):
 
                 else:
                     print("ERR: Could not create QoS global Prefix: {}".format(yaml_key))
-                    cloudgenix.jd_detailed(resp)
+                    prisma_sase.jd_detailed(resp)
 
         ############################################################################
         # PRIORITY_GLOBAL_PREFIXES - Delete
@@ -1757,7 +1757,7 @@ def push_resources(cgx_session, loaded_config):
                     print("Deleted QoS global Prefix: {}".format(ctrl_key))
                 else:
                     print("ERR: Could not delete QoS global Prefix: {}".format(ctrl_key))
-                    cloudgenix.jd_detailed(resp)
+                    prisma_sase.jd_detailed(resp)
     ############################################################################
     # PRIORITY_LOCAL_PREFIXES
     ############################################################################
@@ -1780,7 +1780,7 @@ def push_resources(cgx_session, loaded_config):
                         print("Updated QoS local Prefix: {}".format(yaml_key))
                     else:
                         print("ERR: Could not update QoS local Prefix: {}".format(yaml_key))
-                        cloudgenix.jd_detailed(resp)
+                        prisma_sase.jd_detailed(resp)
 
                 else:
                     ############################################################################
@@ -1803,7 +1803,7 @@ def push_resources(cgx_session, loaded_config):
 
                 else:
                     print("ERR: Could not create QoS local Prefix: {}".format(yaml_key))
-                    cloudgenix.jd_detailed(resp)
+                    prisma_sase.jd_detailed(resp)
 
         ############################################################################
         # PRIORITY_LOCAL_PREFIXES - Delete
@@ -1816,7 +1816,7 @@ def push_resources(cgx_session, loaded_config):
                     print("Deleted QoS local Prefix: {}".format(ctrl_key))
                 else:
                     print("ERR: Could not delete QoS local Prefix: {}".format(ctrl_key))
-                    cloudgenix.jd_detailed(resp)
+                    prisma_sase.jd_detailed(resp)
 
     ############################################################################
     # NETWORK_GLOBAL_PREFIXES
@@ -1839,7 +1839,7 @@ def push_resources(cgx_session, loaded_config):
                         print("Updated Path Global Prefix: {}".format(yaml_key))
                     else:
                         print("ERR: Could not update Path Global Prefix: {}".format(yaml_key))
-                        cloudgenix.jd_detailed(resp)
+                        prisma_sase.jd_detailed(resp)
 
                 else:
                     ############################################################################
@@ -1863,7 +1863,7 @@ def push_resources(cgx_session, loaded_config):
 
                 else:
                     print("ERR: Could not create Path Global Prefix: {}".format(yaml_key))
-                    cloudgenix.jd_detailed(resp)
+                    prisma_sase.jd_detailed(resp)
 
         ############################################################################
         # NETWORK_GLOBAL_PREFIXES - Delete
@@ -1876,7 +1876,7 @@ def push_resources(cgx_session, loaded_config):
                     print("Deleted Path Global Prefix: {}".format(ctrl_key))
                 else:
                     print("ERR: Could not delete Path Global Prefix: {}".format(ctrl_key))
-                    cloudgenix.jd_detailed(resp)
+                    prisma_sase.jd_detailed(resp)
 
     ############################################################################
     # NETWORK_LOCAL_PREFIXES
@@ -1900,7 +1900,7 @@ def push_resources(cgx_session, loaded_config):
                         print("Updated Path Local Prefix: {}".format(yaml_key))
                     else:
                         print("ERR: Could not update Path Local Prefix: {}".format(yaml_key))
-                        cloudgenix.jd_detailed(resp)
+                        prisma_sase.jd_detailed(resp)
 
                 else:
                     ############################################################################
@@ -1923,7 +1923,7 @@ def push_resources(cgx_session, loaded_config):
 
                 else:
                     print("ERR: Could not create Path Local Prefix: {}".format(yaml_key))
-                    cloudgenix.jd_detailed(resp)
+                    prisma_sase.jd_detailed(resp)
 
         ############################################################################
         # NETWORK_LOCAL_PREFIXES - Delete
@@ -1936,7 +1936,7 @@ def push_resources(cgx_session, loaded_config):
                     print("Deleted Path Local Prefix: {}".format(ctrl_key))
                 else:
                     print("ERR: Could not delete Path Local Prefix: {}".format(ctrl_key))
-                    cloudgenix.jd_detailed(resp)
+                    prisma_sase.jd_detailed(resp)
 
     return
 

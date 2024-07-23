@@ -210,7 +210,7 @@ def create_global_dicts_all(cgx_session):
 
     else:
         print("ERR: Could not retrieve appdefs")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NW Context
@@ -224,7 +224,7 @@ def create_global_dicts_all(cgx_session):
 
     else:
         print("ERR: Could not retrieve NW Contexts")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
     #
     # NW Global Prefix
     #
@@ -237,7 +237,7 @@ def create_global_dicts_all(cgx_session):
 
     else:
         print("ERR: Could not retrieve NW Global Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NW Local Prefix
@@ -251,7 +251,7 @@ def create_global_dicts_all(cgx_session):
 
     else:
         print("ERR: Could not retrieve NW Local Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # WAN Interface Labels
@@ -271,7 +271,7 @@ def create_global_dicts_all(cgx_session):
 
     else:
         print("ERR: Could not retrieve WAN Interface Labels")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NW Policy Stack
@@ -286,7 +286,7 @@ def create_global_dicts_all(cgx_session):
 
     else:
         print("ERR: Could not retrieve NW Policy Stacks")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NW Policy Set
@@ -308,10 +308,10 @@ def create_global_dicts_all(cgx_session):
                     nwpolicyrule_name_config[(item["id"], rule["name"])] = rule
             else:
                 print("ERR: Could not retrieve NW Policy Rules")
-                cloudgenix.jd_detailed(resp)
+                prisma_sase.jd_detailed(resp)
     else:
         print("ERR: Could not retrieve NW Policy Sets")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # Service Labels
@@ -325,7 +325,7 @@ def create_global_dicts_all(cgx_session):
 
     else:
         print("ERR: Could not retrieve Service Labels")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # Qos Global Prefix
@@ -339,7 +339,7 @@ def create_global_dicts_all(cgx_session):
 
     else:
         print("ERR: Could not retrieve QoS Global Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # QoS Local Prefix
@@ -353,7 +353,7 @@ def create_global_dicts_all(cgx_session):
 
     else:
         print("ERR: Could not retrieve QoS Local Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # QoS Policy Stack
@@ -368,7 +368,7 @@ def create_global_dicts_all(cgx_session):
 
     else:
         print("ERR: Could not retrieve QoS Policy Stacks")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # QoS Policy Set
@@ -390,10 +390,10 @@ def create_global_dicts_all(cgx_session):
                     qospolicyrule_name_config[(item["id"], rule["name"])] = rule
             else:
                 print("ERR: Could not retrieve QoS Policy Rules")
-                cloudgenix.jd_detailed(resp)
+                prisma_sase.jd_detailed(resp)
     else:
         print("ERR: Could not retrieve QoS Policy Sets")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NAT Zone
@@ -407,7 +407,7 @@ def create_global_dicts_all(cgx_session):
 
     else:
         print("ERR: Could not retrieve NAT Zones")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NAT Pool
@@ -421,7 +421,7 @@ def create_global_dicts_all(cgx_session):
 
     else:
         print("ERR: Could not retrieve NAT Pools")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NAT Global Prefix
@@ -435,7 +435,7 @@ def create_global_dicts_all(cgx_session):
 
     else:
         print("ERR: Could not retrieve NAT Global Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NAT Local Prefix
@@ -449,7 +449,7 @@ def create_global_dicts_all(cgx_session):
 
     else:
         print("ERR: Could not retrieve NAT Local Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NAT Policy Stack
@@ -464,7 +464,7 @@ def create_global_dicts_all(cgx_session):
 
     else:
         print("ERR: Could not retrieve NAT Policy Stacks")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NAT Policy Set
@@ -486,11 +486,11 @@ def create_global_dicts_all(cgx_session):
                     natpolicyrule_name_config[(item["id"], rule["name"])] = rule
             else:
                 print("ERR: Could not retrieve NAT Policy Rules")
-                cloudgenix.jd_detailed(resp)
+                prisma_sase.jd_detailed(resp)
 
     else:
         print("ERR: Could not retrieve NAT Policy Sets")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NGFW Global Prefix
@@ -504,7 +504,7 @@ def create_global_dicts_all(cgx_session):
 
     else:
         print("ERR: Could not retrieve Security Global Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NGFW Local Prefix
@@ -518,7 +518,7 @@ def create_global_dicts_all(cgx_session):
 
     else:
         print("ERR: Could not retrieve Security Local Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NGFW Policy Stack
@@ -533,7 +533,7 @@ def create_global_dicts_all(cgx_session):
 
     else:
         print("ERR: Could not retrieve Security Policy Stacks")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NGFW Policy Set
@@ -555,7 +555,7 @@ def create_global_dicts_all(cgx_session):
                     ngfwpolicyrule_name_config[(item["id"], rule["name"])] = rule
     else:
         print("ERR: Could not retrieve Security Policy Sets")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # Security Zones
@@ -569,7 +569,7 @@ def create_global_dicts_all(cgx_session):
 
     else:
         print("ERR: Could not retrieve Security Zones")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
 
     return
@@ -589,7 +589,7 @@ def create_global_dicts_path(cgx_session):
 
     else:
         print("ERR: Could not retrieve appdefs")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NW Context
@@ -603,7 +603,7 @@ def create_global_dicts_path(cgx_session):
 
     else:
         print("ERR: Could not retrieve NW Contexts")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
     #
     # NW Global Prefix
     #
@@ -616,7 +616,7 @@ def create_global_dicts_path(cgx_session):
 
     else:
         print("ERR: Could not retrieve NW Global Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NW Local Prefix
@@ -630,7 +630,7 @@ def create_global_dicts_path(cgx_session):
 
     else:
         print("ERR: Could not retrieve NW Local Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # WAN Interface Labels
@@ -650,7 +650,7 @@ def create_global_dicts_path(cgx_session):
 
     else:
         print("ERR: Could not retrieve WAN Interface Labels")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NW Policy Stack
@@ -665,7 +665,7 @@ def create_global_dicts_path(cgx_session):
 
     else:
         print("ERR: Could not retrieve NW Policy Stacks")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NW Policy Set
@@ -687,10 +687,10 @@ def create_global_dicts_path(cgx_session):
                     nwpolicyrule_name_config[(item["id"], rule["name"])] = rule
             else:
                 print("ERR: Could not retrieve NW Policy Rules")
-                cloudgenix.jd_detailed(resp)
+                prisma_sase.jd_detailed(resp)
     else:
         print("ERR: Could not retrieve NW Policy Sets")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # Service Labels
@@ -704,7 +704,7 @@ def create_global_dicts_path(cgx_session):
 
     else:
         print("ERR: Could not retrieve Service Labels")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     return
 
@@ -722,7 +722,7 @@ def create_global_dicts_qos(cgx_session):
 
     else:
         print("ERR: Could not retrieve appdefs")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NW Context
@@ -736,7 +736,7 @@ def create_global_dicts_qos(cgx_session):
 
     else:
         print("ERR: Could not retrieve NW Contexts")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
     #
     # Qos Global Prefix
     #
@@ -749,7 +749,7 @@ def create_global_dicts_qos(cgx_session):
 
     else:
         print("ERR: Could not retrieve QoS Global Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # QoS Local Prefix
@@ -763,7 +763,7 @@ def create_global_dicts_qos(cgx_session):
 
     else:
         print("ERR: Could not retrieve QoS Local Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # QoS Policy Stack
@@ -778,7 +778,7 @@ def create_global_dicts_qos(cgx_session):
 
     else:
         print("ERR: Could not retrieve QoS Policy Stacks")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # QoS Policy Set
@@ -800,10 +800,10 @@ def create_global_dicts_qos(cgx_session):
                     qospolicyrule_name_config[(item["id"], rule["name"])] = rule
             else:
                 print("ERR: Could not retrieve QoS Policy Rules")
-                cloudgenix.jd_detailed(resp)
+                prisma_sase.jd_detailed(resp)
     else:
         print("ERR: Could not retrieve QoS Policy Sets")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     return
 
@@ -821,7 +821,7 @@ def create_global_dicts_nat(cgx_session):
 
     else:
         print("ERR: Could not retrieve NAT Zones")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NAT Pool
@@ -835,7 +835,7 @@ def create_global_dicts_nat(cgx_session):
 
     else:
         print("ERR: Could not retrieve NAT Pools")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NAT Global Prefix
@@ -849,7 +849,7 @@ def create_global_dicts_nat(cgx_session):
 
     else:
         print("ERR: Could not retrieve NAT Global Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NAT Local Prefix
@@ -863,7 +863,7 @@ def create_global_dicts_nat(cgx_session):
 
     else:
         print("ERR: Could not retrieve NAT Local Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NAT Policy Stack
@@ -878,7 +878,7 @@ def create_global_dicts_nat(cgx_session):
 
     else:
         print("ERR: Could not retrieve NAT Policy Stacks")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NAT Policy Set
@@ -900,11 +900,11 @@ def create_global_dicts_nat(cgx_session):
                     natpolicyrule_name_config[(item["id"], rule["name"])] = rule
             else:
                 print("ERR: Could not retrieve NAT Policy Rules")
-                cloudgenix.jd_detailed(resp)
+                prisma_sase.jd_detailed(resp)
 
     else:
         print("ERR: Could not retrieve NAT Policy Sets")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
 
     return
@@ -924,7 +924,7 @@ def create_global_dicts_security(cgx_session):
 
     else:
         print("ERR: Could not retrieve appdefs")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NGFW Global Prefix
@@ -938,7 +938,7 @@ def create_global_dicts_security(cgx_session):
 
     else:
         print("ERR: Could not retrieve Security Global Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NGFW Local Prefix
@@ -952,7 +952,7 @@ def create_global_dicts_security(cgx_session):
 
     else:
         print("ERR: Could not retrieve Security Local Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NGFW Policy Stack
@@ -967,7 +967,7 @@ def create_global_dicts_security(cgx_session):
 
     else:
         print("ERR: Could not retrieve Security Policy Stacks")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # NGFW Policy Set
@@ -989,7 +989,7 @@ def create_global_dicts_security(cgx_session):
                     ngfwpolicyrule_name_config[(item["id"], rule["name"])] = rule
     else:
         print("ERR: Could not retrieve Security Policy Sets")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     #
     # Security Zones
@@ -1003,7 +1003,7 @@ def create_global_dicts_security(cgx_session):
 
     else:
         print("ERR: Could not retrieve Security Zones")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     return
 
@@ -2116,7 +2116,7 @@ def push_policy_path(cgx_session, loaded_config):
                     print("Updated Path Set: {}".format(pathsetname))
                 else:
                     print("ERR: Could not update Path Set: {}".format(pathsetname))
-                    cloudgenix.jd_detailed(resp)
+                    prisma_sase.jd_detailed(resp)
 
             else:
                 ############################################################################
@@ -2135,7 +2135,7 @@ def push_policy_path(cgx_session, loaded_config):
                     rules_ctrl[rule["name"]] = rule
             else:
                 print("ERR: Could not retrieve rules for Path Policy Set: {}".format(pathsetname))
-                cloudgenix.jd_detailed(resp)
+                prisma_sase.jd_detailed(resp)
 
             for rulename in rules_yaml.keys():
                 rule_yaml = rules_yaml[rulename]
@@ -2155,7 +2155,7 @@ def push_policy_path(cgx_session, loaded_config):
                             print("\tUpdated Rule: {}".format(rulename))
                         else:
                             print("ERR: Could not update Rule: {}".format(rulename))
-                            cloudgenix.jd_detailed(resp)
+                            prisma_sase.jd_detailed(resp)
                     else:
                         ############################################################################
                         # Path Rules - No Changes detected
@@ -2171,7 +2171,7 @@ def push_policy_path(cgx_session, loaded_config):
                         print("\tCreated Rule: {}".format(rulename))
                     else:
                         print("ERR: Could not create Rule: {}".format(rulename))
-                        cloudgenix.jd_detailed(resp)
+                        prisma_sase.jd_detailed(resp)
 
             ############################################################################
             # Path Rules - Delete
@@ -2184,7 +2184,7 @@ def push_policy_path(cgx_session, loaded_config):
                         print("\tDeleted Rule: {}".format(rulename))
                     else:
                         print("ERR: Could not delete Rule: {}".format(rulename))
-                        cloudgenix.jd_detailed(resp)
+                        prisma_sase.jd_detailed(resp)
 
         else:
             ############################################################################
@@ -2210,12 +2210,12 @@ def push_policy_path(cgx_session, loaded_config):
                         print("\tCreated Rule: {}".format(rulename))
                     else:
                         print("ERR: Could not create Rule: {}".format(rulename))
-                        cloudgenix.jd_detailed(resp)
+                        prisma_sase.jd_detailed(resp)
 
 
             else:
                 print("ERR: Could not create Path Set: {}".format(pathsetname))
-                cloudgenix.jd_detailed(resp)
+                prisma_sase.jd_detailed(resp)
 
 
     ############################################################################
@@ -2241,7 +2241,7 @@ def push_policy_path(cgx_session, loaded_config):
                     print("Updated Path Stack: {} ".format(pathstackname))
                 else:
                     print("ERR: Could not update Path Stack: {}".format(pathstackname))
-                    cloudgenix.jd_detailed(resp)
+                    prisma_sase.jd_detailed(resp)
 
             else:
                 ############################################################################
@@ -2258,7 +2258,7 @@ def push_policy_path(cgx_session, loaded_config):
                     print("Created Path Stack: {}".format(pathstackname))
             else:
                 print("ERR: Could not create Path Stack: {}".format(pathstackname))
-                cloudgenix.jd_detailed(resp)
+                prisma_sase.jd_detailed(resp)
 
     ############################################################################
     # Path Stack - Delete
@@ -2271,7 +2271,7 @@ def push_policy_path(cgx_session, loaded_config):
                 print("Deleted Path Stack: {}".format(pathstackname))
             else:
                 print("ERR: Could not delete Path Stack: {}".format(pathstackname))
-                cloudgenix.jd_detailed(resp)
+                prisma_sase.jd_detailed(resp)
 
     ############################################################################
     # Path Set - Delete
@@ -2284,7 +2284,7 @@ def push_policy_path(cgx_session, loaded_config):
                 print("Deleted Path Set: {}".format(pathsetname))
             else:
                 print("ERR: Could not delete Path Set: {}".format(pathsetname))
-                cloudgenix.jd_detailed(resp)
+                prisma_sase.jd_detailed(resp)
 
     return
 
@@ -2317,7 +2317,7 @@ def push_policy_qos(cgx_session, loaded_config):
                     print("Updated QoS Set: {}".format(qossetname))
                 else:
                     print("ERR: Could not update QoS Set: {}".format(qossetname))
-                    cloudgenix.jd_detailed(resp)
+                    prisma_sase.jd_detailed(resp)
 
             else:
                 ############################################################################
@@ -2336,7 +2336,7 @@ def push_policy_qos(cgx_session, loaded_config):
                     rules_ctrl[rule["name"]] = rule
             else:
                 print("ERR: Could not retrieve rules for Priority Policy Set: {}".format(qossetname))
-                cloudgenix.jd_detailed(resp)
+                prisma_sase.jd_detailed(resp)
 
             for rulename in rules_yaml.keys():
                 rule_yaml = rules_yaml[rulename]
@@ -2355,7 +2355,7 @@ def push_policy_qos(cgx_session, loaded_config):
                             print("\tUpdated Rule: {}".format(rulename))
                         else:
                             print("ERR: Could not update Rule: {}".format(rulename))
-                            cloudgenix.jd_detailed(resp)
+                            prisma_sase.jd_detailed(resp)
                     else:
                         ############################################################################
                         # QoS Rules - No Changes detected
@@ -2371,7 +2371,7 @@ def push_policy_qos(cgx_session, loaded_config):
                         print("\tCreated Rule: {}".format(rulename))
                     else:
                         print("ERR: Could not create Rule: {}".format(rulename))
-                        cloudgenix.jd_detailed(resp)
+                        prisma_sase.jd_detailed(resp)
 
             ############################################################################
             # QoS Rules - Delete
@@ -2384,7 +2384,7 @@ def push_policy_qos(cgx_session, loaded_config):
                         print("\tDeleted Rule: {}".format(rulename))
                     else:
                         print("ERR: Could not delete Rule: {}".format(rulename))
-                        cloudgenix.jd_detailed(resp)
+                        prisma_sase.jd_detailed(resp)
 
         else:
             ############################################################################
@@ -2414,7 +2414,7 @@ def push_policy_qos(cgx_session, loaded_config):
                             rules_ctrl[rule["name"]] = rule
                     else:
                         print("ERR: Could not retrieve rules for Priority Policy Set: {}".format(qossetname))
-                        cloudgenix.jd_detailed(resp)
+                        prisma_sase.jd_detailed(resp)
 
                     for rulename in rules_yaml.keys():
                         rule_yaml = rules_yaml[rulename]
@@ -2435,7 +2435,7 @@ def push_policy_qos(cgx_session, loaded_config):
                                     print("\tUpdated Rule: {}".format(rulename))
                                 else:
                                     print("ERR: Could not update Rule: {}".format(rulename))
-                                    cloudgenix.jd_detailed(resp)
+                                    prisma_sase.jd_detailed(resp)
                             else:
                                 ############################################################################
                                 # QoS Rules - No Changes detected
@@ -2452,7 +2452,7 @@ def push_policy_qos(cgx_session, loaded_config):
                                 print("\tCreated Rule: {}".format(rulename))
                             else:
                                 print("ERR: Could not create Rule: {}".format(rulename))
-                                cloudgenix.jd_detailed(resp)
+                                prisma_sase.jd_detailed(resp)
 
                     ############################################################################
                     # QoS Rules - Delete
@@ -2466,7 +2466,7 @@ def push_policy_qos(cgx_session, loaded_config):
                                 print("\tDeleted Rule: {}".format(rulename))
                             else:
                                 print("ERR: Could not delete Rule: {}".format(rulename))
-                                cloudgenix.jd_detailed(resp)
+                                prisma_sase.jd_detailed(resp)
 
                 else:
                     ############################################################################
@@ -2481,11 +2481,11 @@ def push_policy_qos(cgx_session, loaded_config):
                             print("\tCreated Rule: {}".format(rulename))
                         else:
                             print("ERR: Could not create Rule: {}".format(rulename))
-                            cloudgenix.jd_detailed(resp)
+                            prisma_sase.jd_detailed(resp)
 
             else:
                 print("ERR: Could not create QoS Set: {}".format(qossetname))
-                cloudgenix.jd_detailed(resp)
+                prisma_sase.jd_detailed(resp)
 
     ############################################################################
     # QoS Stack
@@ -2510,7 +2510,7 @@ def push_policy_qos(cgx_session, loaded_config):
                     print("Updated QoS Stack: {} ".format(qosstackname))
                 else:
                     print("ERR: Could not update QoS Stack: {}".format(qosstackname))
-                    cloudgenix.jd_detailed(resp)
+                    prisma_sase.jd_detailed(resp)
 
             else:
                 ############################################################################
@@ -2527,7 +2527,7 @@ def push_policy_qos(cgx_session, loaded_config):
                     print("Created QoS Stack: {}".format(qosstackname))
             else:
                 print("ERR: Could not create QoS Stack: {}".format(qosstackname))
-                cloudgenix.jd_detailed(resp)
+                prisma_sase.jd_detailed(resp)
 
     ############################################################################
     # QoS Stack - Delete
@@ -2540,7 +2540,7 @@ def push_policy_qos(cgx_session, loaded_config):
                 print("Deleted QoS Stack: {}".format(qosstackname))
             else:
                 print("ERR: Could not delete QoS Stack: {}".format(qosstackname))
-                cloudgenix.jd_detailed(resp)
+                prisma_sase.jd_detailed(resp)
 
     ############################################################################
     # QoS Set - Delete
@@ -2553,7 +2553,7 @@ def push_policy_qos(cgx_session, loaded_config):
                 print("Deleted QoS Set: {}".format(qossetname))
             else:
                 print("ERR: Could not delete QoS Set: {}".format(qossetname))
-                cloudgenix.jd_detailed(resp)
+                prisma_sase.jd_detailed(resp)
     return
 
 
@@ -2581,7 +2581,7 @@ def push_policy_nat(cgx_session, loaded_config):
                     rules_ctrl[rule["name"]] = rule
             else:
                 print("ERR: Could not retrieve rules for NAT Policy Set: {}".format(natsetname))
-                cloudgenix.jd_detailed(resp)
+                prisma_sase.jd_detailed(resp)
 
             for rulename in rules_yaml.keys():
                 rule_yaml = rules_yaml[rulename]
@@ -2601,7 +2601,7 @@ def push_policy_nat(cgx_session, loaded_config):
                             print("\tUpdated Rule: {}".format(rulename))
                         else:
                             print("ERR: Could not update Rule: {}".format(rulename))
-                            cloudgenix.jd_detailed(resp)
+                            prisma_sase.jd_detailed(resp)
                     else:
                         ############################################################################
                         # NAT Rules - No Changes detected
@@ -2621,7 +2621,7 @@ def push_policy_nat(cgx_session, loaded_config):
 
                     else:
                         print("ERR: Could not create Rule: {}".format(rulename))
-                        cloudgenix.jd_detailed(resp)
+                        prisma_sase.jd_detailed(resp)
 
             ############################################################################
             # NAT Rules - Delete
@@ -2648,17 +2648,17 @@ def push_policy_nat(cgx_session, loaded_config):
                             print("\tUpdated Policy rule order")
                         else:
                             print("ERR: Could not update rule order. Rule may not be deleted")
-                            cloudgenix.jd_detailed(resp)
+                            prisma_sase.jd_detailed(resp)
                     else:
                         print("ERR: Could not retrieve NAT Policy Sets. Rule may not be deleted")
-                        cloudgenix.jd_detailed(resp)
+                        prisma_sase.jd_detailed(resp)
 
                     resp = cgx_session.delete.natpolicyrules(natpolicyset_id=set_ctrl["id"], natpolicyrule_id=data["id"])
                     if resp.cgx_status:
                         print("\tDeleted Rule: {}".format(rulename))
                     else:
                         print("ERR: Could not delete Rule: {}".format(rulename))
-                        cloudgenix.jd_detailed(resp)
+                        prisma_sase.jd_detailed(resp)
 
             set_data_yaml = translate_set(setdata=set_yaml, setid=set_ctrl["id"], set_type=NAT, action=N2ID)
             confdelta = compareconf(set_data_yaml, set_ctrl)
@@ -2672,7 +2672,7 @@ def push_policy_nat(cgx_session, loaded_config):
                     print("Updated NAT Set: {}".format(natsetname))
                 else:
                     print("ERR: Could not update NAT Set: {}".format(natsetname))
-                    cloudgenix.jd_detailed(resp)
+                    prisma_sase.jd_detailed(resp)
 
             else:
                 ############################################################################
@@ -2716,7 +2716,7 @@ def push_policy_nat(cgx_session, loaded_config):
 
                     else:
                         print("ERR: Could not create Rule: {}".format(rulename))
-                        cloudgenix.jd_detailed(resp)
+                        prisma_sase.jd_detailed(resp)
 
                 ############################################################################
                 # NAT Set - Update Policy Order
@@ -2743,14 +2743,14 @@ def push_policy_nat(cgx_session, loaded_config):
                             print("Updated NAT Set: {}".format(natsetname))
                         else:
                             print("ERR: Could not update rule order for NAT Set: {}".format(natsetname))
-                            cloudgenix.jd_detailed(resp)
+                            prisma_sase.jd_detailed(resp)
                     else:
                         print("ERR: Could not retrieve NAT Set: {}. Rule order not updated".format(natsetname))
-                        cloudgenix.jd_detailed(resp)
+                        prisma_sase.jd_detailed(resp)
 
             else:
                 print("ERR: Could not create NAT Set: {}".format(natsetname))
-                cloudgenix.jd_detailed(resp)
+                prisma_sase.jd_detailed(resp)
 
     ############################################################################
     # NAT Stack
@@ -2775,7 +2775,7 @@ def push_policy_nat(cgx_session, loaded_config):
                     print("Updated NAT Stack: {} ".format(natstackname))
                 else:
                     print("ERR: Could not update NAT Stack: {}".format(natstackname))
-                    cloudgenix.jd_detailed(resp)
+                    prisma_sase.jd_detailed(resp)
 
             else:
                 ############################################################################
@@ -2792,7 +2792,7 @@ def push_policy_nat(cgx_session, loaded_config):
                 print("Created NAT Stack: {}".format(natstackname))
             else:
                 print("ERR: Could not create NAT Stack: {}".format(natstackname))
-                cloudgenix.jd_detailed(resp)
+                prisma_sase.jd_detailed(resp)
 
     ############################################################################
     # NAT Stack - Delete
@@ -2805,7 +2805,7 @@ def push_policy_nat(cgx_session, loaded_config):
                 print("Deleted NAT Stack: {}".format(natstackname))
             else:
                 print("ERR: Could not delete NAT Stack: {}".format(natstackname))
-                cloudgenix.jd_detailed(resp)
+                prisma_sase.jd_detailed(resp)
 
     ############################################################################
     # NAT Set - Delete
@@ -2818,7 +2818,7 @@ def push_policy_nat(cgx_session, loaded_config):
                 print("Deleted NAT Set: {}".format(natsetname))
             else:
                 print("ERR: Could not delete NAT Set: {}".format(natsetname))
-                cloudgenix.jd_detailed(resp)
+                prisma_sase.jd_detailed(resp)
 
     return
 
@@ -2847,7 +2847,7 @@ def push_policy_security(cgx_session, loaded_config):
                     rules_ctrl[rule["name"]] = rule
             else:
                 print("ERR: Could not retrieve rules for Security Policy Set: {}".format(ngfwsetname))
-                cloudgenix.jd_detailed(resp)
+                prisma_sase.jd_detailed(resp)
 
             for rulename in rules_yaml.keys():
                 rule_yaml = rules_yaml[rulename]
@@ -2868,7 +2868,7 @@ def push_policy_security(cgx_session, loaded_config):
                             print("\tUpdated Rule: {}".format(rulename))
                         else:
                             print("ERR: Could not update Rule: {}".format(rulename))
-                            cloudgenix.jd_detailed(resp)
+                            prisma_sase.jd_detailed(resp)
                     else:
                         ############################################################################
                         # Security Rules - No Changes detected
@@ -2889,7 +2889,7 @@ def push_policy_security(cgx_session, loaded_config):
 
                     else:
                         print("ERR: Could not create Rule: {}".format(rulename))
-                        cloudgenix.jd_detailed(resp)
+                        prisma_sase.jd_detailed(resp)
 
             ############################################################################
             # Security Rules - Delete
@@ -2906,7 +2906,7 @@ def push_policy_security(cgx_session, loaded_config):
                         print("\tDeleted Rule: {}".format(rulename))
                     else:
                         print("ERR: Could not delete Rule: {}".format(rulename))
-                        cloudgenix.jd_detailed(resp)
+                        prisma_sase.jd_detailed(resp)
 
                     resp = cgx_session.get.ngfwsecuritypolicysets(ngfwsecuritypolicyset_id=set_ctrl["id"])
                     if resp.cgx_status:
@@ -2921,10 +2921,10 @@ def push_policy_security(cgx_session, loaded_config):
                             print("\tUpdated Policy rule order")
                         else:
                             print("ERR: Could not update rule order. Rule may not be deleted")
-                            cloudgenix.jd_detailed(resp)
+                            prisma_sase.jd_detailed(resp)
                     else:
                         print("ERR: Could not retrieve Security Policy Sets. Rule may not be deleted")
-                        cloudgenix.jd_detailed(resp)
+                        prisma_sase.jd_detailed(resp)
 
             set_data_yaml = translate_set(setdata=set_yaml, setid=set_ctrl["id"], set_type=SECURITY, action=N2ID)
             confdelta = compareconf(set_data_yaml, set_ctrl)
@@ -2938,7 +2938,7 @@ def push_policy_security(cgx_session, loaded_config):
                     print("Updated Security Set: {}".format(ngfwsetname))
                 else:
                     print("ERR: Could not update Security Set: {}".format(ngfwsetname))
-                    cloudgenix.jd_detailed(resp)
+                    prisma_sase.jd_detailed(resp)
 
             else:
                 ############################################################################
@@ -2981,7 +2981,7 @@ def push_policy_security(cgx_session, loaded_config):
 
                     else:
                         print("ERR: Could not create Rule: {}".format(rulename))
-                        cloudgenix.jd_detailed(resp)
+                        prisma_sase.jd_detailed(resp)
 
                 ############################################################################
                 # Security Set - Update Policy Order
@@ -3002,14 +3002,14 @@ def push_policy_security(cgx_session, loaded_config):
                             print("Updated Security Set: {}".format(ngfwsetname))
                         else:
                             print("ERR: Could not update rule order for Security Set: {}".format(ngfwsetname))
-                            cloudgenix.jd_detailed(resp)
+                            prisma_sase.jd_detailed(resp)
                     else:
                         print("ERR: Could not retrieve Security Set: {}. Rule order not updated".format(ngfwsetname))
-                        cloudgenix.jd_detailed(resp)
+                        prisma_sase.jd_detailed(resp)
 
             else:
                 print("ERR: Could not create Security Set: {}".format(ngfwsetname))
-                cloudgenix.jd_detailed(resp)
+                prisma_sase.jd_detailed(resp)
 
     ############################################################################
     # Security Stack
@@ -3034,7 +3034,7 @@ def push_policy_security(cgx_session, loaded_config):
                     print("Updated Security Stack: {} ".format(nfgwstackname))
                 else:
                     print("ERR: Could not update Security Stack: {}".format(nfgwstackname))
-                    cloudgenix.jd_detailed(resp)
+                    prisma_sase.jd_detailed(resp)
 
             else:
                 ############################################################################
@@ -3051,7 +3051,7 @@ def push_policy_security(cgx_session, loaded_config):
                 print("Created Security Stack: {}".format(nfgwstackname))
             else:
                 print("ERR: Could not create Security Stack: {}".format(nfgwstackname))
-                cloudgenix.jd_detailed(resp)
+                prisma_sase.jd_detailed(resp)
 
     ############################################################################
     # Security Stack - Delete
@@ -3064,7 +3064,7 @@ def push_policy_security(cgx_session, loaded_config):
                 print("Deleted Security Stack: {}".format(nfgwstackname))
             else:
                 print("ERR: Could not delete Security Stack: {}".format(nfgwstackname))
-                cloudgenix.jd_detailed(resp)
+                prisma_sase.jd_detailed(resp)
 
     ############################################################################
     # Security Set - Delete
@@ -3077,7 +3077,7 @@ def push_policy_security(cgx_session, loaded_config):
                 print("Deleted Security Set: {}".format(ngfwsetname))
             else:
                 print("ERR: Could not delete Security Set: {}".format(ngfwsetname))
-                cloudgenix.jd_detailed(resp)
+                prisma_sase.jd_detailed(resp)
 
     return
 

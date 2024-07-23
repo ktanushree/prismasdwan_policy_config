@@ -380,7 +380,7 @@ def pull_resources(cgx_session, return_yml=False, config_file="./resourceconfig.
             globalpf_name_config[name] = data
     else:
         print("ERR: Could not retrieve Global Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     CONFIG[GLOBAL_PREFIX_FILTERS] = [{name: globalpf_name_config[name]} for name in globalpf_name_config.keys()]
 
@@ -399,7 +399,7 @@ def pull_resources(cgx_session, return_yml=False, config_file="./resourceconfig.
             localpf_name_config[name] = data
     else:
         print("ERR: Could not retrieve Local Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     CONFIG[LOCAL_PREFIX_FILTERS] = [{name: localpf_name_config[name]} for name in localpf_name_config.keys()]
 
@@ -418,7 +418,7 @@ def pull_resources(cgx_session, return_yml=False, config_file="./resourceconfig.
                 app_name_config[name] = data
     else:
         print("ERR: Could not retrieve appdefs")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     CONFIG[CUSTOM_APPDEFS] = [{name: app_name_config[name]} for name in app_name_config.keys()]
 
@@ -436,7 +436,7 @@ def pull_resources(cgx_session, return_yml=False, config_file="./resourceconfig.
 
     else:
         print("ERR: Could not retrieve NW Contexts")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     CONFIG[NETWORK_CONTEXTS] = [{name: nwcontext_name_config[name]} for name in nwcontext_name_config.keys()]
 
@@ -457,7 +457,7 @@ def pull_resources(cgx_session, return_yml=False, config_file="./resourceconfig.
 
     else:
         print("ERR: Could not retrieve Security Global Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     CONFIG[SECURITY_GLOBAL_PREFIXES] = [{name: ngfwglobalprefix_name_config[name]} for name in ngfwglobalprefix_name_config.keys()]
 
@@ -475,7 +475,7 @@ def pull_resources(cgx_session, return_yml=False, config_file="./resourceconfig.
 
     else:
         print("ERR: Could not retrieve Security Local Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     CONFIG[SECURITY_LOCAL_PREFIXES] = [{name: ngfwlocalprefix_name_config[name]} for name in ngfwlocalprefix_name_config.keys()]
 
@@ -494,7 +494,7 @@ def pull_resources(cgx_session, return_yml=False, config_file="./resourceconfig.
 
     else:
         print("ERR: Could not retrieve Security Zones")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     CONFIG[SECURITY_ZONES] = [{name: securityzone_name_config[name]} for name in securityzone_name_config.keys()]
 
@@ -515,7 +515,7 @@ def pull_resources(cgx_session, return_yml=False, config_file="./resourceconfig.
 
     else:
         print("ERR: Could not retrieve NAT Zones")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     CONFIG[NAT_ZONES] = [{name: natzone_name_config[name]} for name in natzone_name_config.keys()]
 
@@ -534,7 +534,7 @@ def pull_resources(cgx_session, return_yml=False, config_file="./resourceconfig.
 
     else:
         print("ERR: Could not retrieve NAT Pools")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     CONFIG[NAT_POLICY_POOL] = [{name: natpool_name_config[name]} for name in natpool_name_config.keys()]
 
@@ -552,7 +552,7 @@ def pull_resources(cgx_session, return_yml=False, config_file="./resourceconfig.
 
     else:
         print("ERR: Could not retrieve NAT Global Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     CONFIG[NAT_GLOBAL_PREFIXES] = [{name: natglobalprefix_name_config[name]} for name in natglobalprefix_name_config.keys()]
 
@@ -570,7 +570,7 @@ def pull_resources(cgx_session, return_yml=False, config_file="./resourceconfig.
 
     else:
         print("ERR: Could not retrieve NAT Local Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     CONFIG[NAT_LOCAL_PREFIXES] = [{name: natlocalprefix_name_config[name]} for name in natlocalprefix_name_config.keys()]
 
@@ -591,7 +591,7 @@ def pull_resources(cgx_session, return_yml=False, config_file="./resourceconfig.
 
     else:
         print("ERR: Could not retrieve QoS Global Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     CONFIG[PRIORITY_GLOBAL_PREFIXES] = [{name: qosglobalprefix_name_config[name]} for name in qosglobalprefix_name_config.keys()]
 
@@ -609,7 +609,7 @@ def pull_resources(cgx_session, return_yml=False, config_file="./resourceconfig.
 
     else:
         print("ERR: Could not retrieve QoS Local Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     CONFIG[PRIORITY_LOCAL_PREFIXES] = [{name: qoslocalprefix_name_config[name]} for name in
                                         qoslocalprefix_name_config.keys()]
@@ -631,7 +631,7 @@ def pull_resources(cgx_session, return_yml=False, config_file="./resourceconfig.
 
     else:
         print("ERR: Could not retrieve Path Global Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     CONFIG[NETWORK_GLOBAL_PREFIXES] = [{name: nwglobalprefix_name_config[name]} for name in
                                         nwglobalprefix_name_config.keys()]
@@ -650,7 +650,7 @@ def pull_resources(cgx_session, return_yml=False, config_file="./resourceconfig.
 
     else:
         print("ERR: Could not retrieve Path Local Prefix Filters")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     CONFIG[NETWORK_LOCAL_PREFIXES] = [{name: nwlocalprefix_name_config[name]} for name in
                                        nwlocalprefix_name_config.keys()]
@@ -671,7 +671,7 @@ def pull_resources(cgx_session, return_yml=False, config_file="./resourceconfig.
 
     else:
         print("ERR: Could not retrieve WAN Interface Labels")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
     CONFIG[WANINTERFACE_LABELS] = [{name: label_name_config[name]} for name in
                                       label_name_config.keys()]
@@ -691,7 +691,7 @@ def pull_resources(cgx_session, return_yml=False, config_file="./resourceconfig.
 
     else:
         print("ERR: Could not retrieve Service Labels")
-        cloudgenix.jd_detailed(resp)
+        prisma_sase.jd_detailed(resp)
 
 
     CONFIG[SERVICE_LABELS] = [{name: servicelabel_name_config[name]} for name in
