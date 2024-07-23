@@ -16,26 +16,6 @@ import argparse
 import datetime
 from dictdiffer import diff
 
-try:
-    import cloudgenix
-
-except ImportError as e:
-    cloudgenix = None
-    sys.stderr.write("ERROR: 'cloudgenix' python module required.\n {0}\n".format(e))
-    sys.exit(1)
-
-try:
-    from prismasdwan_settings import CLOUDGENIX_AUTH_TOKEN
-except ImportError:
-    # will get caught below.
-    # Get AUTH_TOKEN/X_AUTH_TOKEN from env variable, if it exists. X_AUTH_TOKEN takes priority.
-    if "X_AUTH_TOKEN" in os.environ:
-        CLOUDGENIX_AUTH_TOKEN = os.environ.get('X_AUTH_TOKEN')
-    elif "AUTH_TOKEN" in os.environ:
-        CLOUDGENIX_AUTH_TOKEN = os.environ.get('AUTH_TOKEN')
-    else:
-        # not set
-        CLOUDGENIX_AUTH_TOKEN = None
 
 #
 # Service Account Details
